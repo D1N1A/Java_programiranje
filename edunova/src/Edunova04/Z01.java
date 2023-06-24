@@ -10,6 +10,7 @@ public class Z01 {
 		int pb = Integer.parseInt(JOptionPane.showInputDialog("Prvibroj"));
 		int db = Integer.parseInt(JOptionPane.showInputDialog("Drugi broj"));
 		
+	
 		
 		int manji = pb < db ? pb : db ;
 		int veci = pb < db ? pb : db;
