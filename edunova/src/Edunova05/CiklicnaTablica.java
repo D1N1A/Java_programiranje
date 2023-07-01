@@ -9,7 +9,8 @@ public static void main(String[] args) {
 	//Unos dodatnih podataka radi lakšeg pisanja koda:
 	
 	int z = 5;
-	int n = 1;
+	
+	
 	
 	//Unos korisnika s if uvjetnim grananjem:
 
@@ -28,25 +29,85 @@ public static void main(String[] args) {
 		
 	//Dvodimenzionalni niz:
 	
-		int [] [] matrica = new int [red] [stupac];
-		matrica [4] [4] =n;
-		matrica [4] [3]= n++;
+	int u = red*stupac;
+	
+	int [] [] matrica = new int [red] [stupac];
+	
+	do {
+		System.out.println(matrica [red] [stupac]);
+		i++;
+	}while (for (int i=0 ; i<red ; i++) {
+		for (int j=0 ; j<stupac ; j++) {
+			 {for (i=u ; i<=red ; i--) {
+				System.out.println(i++);
+				}
+			 {for (j=u/red; j<=stupac;j--) {
+				 System.out.println(j--);
+			 }
+			 {for (i=0 ; i<=red ; i++) {
+				 System.out.println(i++);
+				
+			 }
+			 {for (j=u/stupac ; j<=stupac; j++) {
+				 System.out.println(j--);
+			 }
+			
+			}
+	
+			System.out.print(matrica[i] [j] + " ");
+	}
+		System.out.println();
 		
-		
-	//Ugnježđivanje petlji:
-		
+	}
+			 }
+		}
+	}
+
 		for (int i=0 ; i<red ; i++) {
 			for (int j=0 ; j<stupac ; j++) {
+				 {for (i=u ; i<=red ; i--) {
+					System.out.println(i++);
+					}
+				 {for (j=u/red; j<=stupac;j--) {
+					 System.out.println(j--);
+				 }
+				 {for (i=0 ; i<=red ; i++) {
+					 System.out.println(i++);
+					
+				 }
+				 {for (j=u/stupac ; j<=stupac; j++) {
+					 System.out.println(j--);
+				 }
+				
+				}
+		
 				System.out.print(matrica[i] [j] + " ");
-			}
-			System.out.println();
 		}
+			System.out.println();
+			
+		}
+				 }
+			}
+		}	
+		
+		
+
 	
 	//Dodavanje vrijednosti nizu:
+		
+
+//Ugnježđivanje petlji:
+for (int i=0 ; i<red ; i++) {
+	for (int j=0 ; j<stupac ; j++) {
+		System.out.print(matrica[i] [j] + " ");
+}
+	System.out.println();}
+}
+}
+
+		
 	
 
 		
-		
-}
-}
+	
 		
