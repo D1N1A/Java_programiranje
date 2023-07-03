@@ -30,65 +30,58 @@ public class ciklicnaMatrica {
 			
 		//Dvodimenzionalni niz:
 
-		
-		int u = red*stupac;
-		int d = u/stupac;
-		int l = u/red;
-		int b= 1;
-		int c =0;
-		int m = 1;
-		int o = red/2;
-		int p = stupac/2;
-		
-		
-		int x= red;
-		int y= stupac;
-	
+
 		
 		int [] [] matrica = new int [red] [stupac];
+				
+		int m = red*stupac;
 		
-		for (int k=1 ; k<=(x-1) ; k++) {
-			for (int j=0 ; j<(y-1); j++) {
-				for (int i=0 ; i<m ; i++) {
-					matrica [p][o] = b++;
-				}
-					
-					switch (u) {
-					case 1:
-						o=o-1;
+		int a = m/stupac;
+		int b = m/red;
+		int c=0;
+		
+		int n = 1;
+		
+		for (int i=m/a ; i=a ; n++) {
+			matrica [red] [stupac-b]=n++; 
+		break; {
+		
+			for (int i=b ; i=c ;n++) {
+				matrica [red-b] [stupac]=n++;
+				
+			break; {
+				
+				for (int i=c; i=m; n++) {
+					matrica [red] [stupac-b]= n++;
+				break;
+				{
+					for (int i=a ; i=m ; n++) {
+						matrica [red+a] [stupac+b]=n++;
 						break;
-						
-					case 2:
-						p=p-1;
-						break;
-						
-					case 3:
-						o=o+1;
-						break;
-						
-					case 4:
-						p=p+1;
-						break;
-						
 					}
 				}
-			l=(u+1)%4;
 			}
-			m=m+1;
+				
 	
-		matrica[0][y-1]=b;
 		
-
 		
-		for (int i=0 ; i<x ; i++) {
+		
+		
+		
+		
+		
+		
+		for (int i=0 ; i<x ; i++) 
 			for (int j=0 ; j<y ; j++) {
 				System.out.print(matrica[i] [j] + "\t ");
-		}
-			System.out.println();}
+			}
+			System.out.println() ;
 		
-}
-}
+		
+		
+		
+	
 
-			
-			
+}		
+}		
 
