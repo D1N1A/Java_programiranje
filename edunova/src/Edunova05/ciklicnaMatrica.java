@@ -41,8 +41,9 @@ public class ciklicnaMatrica {
 		int c=0;
 		
 		int n = 1;
+		int i=1;
 		
-		for (int i=m/a ; i=a ; n++) {
+		for (int i=m/a ; i= b ; n++) {
 			matrica [red] [stupac-b]=n++; 
 		break; {
 		
@@ -71,17 +72,13 @@ public class ciklicnaMatrica {
 		
 		
 		
-		for (int i=0 ; i<x ; i++) 
-			for (int j=0 ; j<y ; j++) {
+		for (int i=0 ; i<red ; i++) 
+			for (int j=0 ; j<stupac ; j++) {
 				System.out.print(matrica[i] [j] + "\t ");
 			}
 			System.out.println() ;
-		
-		
-		
-		
-	
-
-}		
-}		
+			}
+			}
+			
+			
 
