@@ -20,58 +20,19 @@ boolean dev = false;
 		
 		  int b = 1;
 		  
-		  int n = matrica[matrica.length-1] [0];
-		  int l = matrica [0] [matrica.length-1];
-		  int k=0;
-		  int l=0;
-		  
+		  int z = matrica[matrica.length-1] [0];
+		  int w = matrica [0] [matrica.length-1];
+		  int x=0;
+		  int y=0;
 		 
 		  
-		  int rows = arr .length;
-		    int cols = arr[0].length;
-		  // Defining the boundaries of the matrix.
-		  int top = 0, bottom = rows - 1, left = 0, right = cols - 1;
-		  
-		  // Defining the direction in which the array is to be traversed.
-		  int dir = 1;
-		 
-		  while (top <= bottom && left <= right) {
-
-		    if (dir == 1) {    // moving left->right
-		      for (int i = left; i <= right; ++i) {
-		        System.out.print(arr[top][i] + " ");
-		      }
-		      // Since we have traversed the whole first
-		      // row, move down to the next row.
-		      ++top;
-		      dir = 2;
-		    } 
-		    else if (dir == 2) {     // moving top->bottom
-		      for (int i = top; i <= bottom; ++i) {
-		          System.out.print(arr[i][right]+ " ");
-		      }
-		      // Since we have traversed the whole last
-		      // column, move left to the previous column.
-		      --right;
-		      dir = 3;
-		    } 
-		    else if (dir == 3) {     // moving right->left
-		      for (int i = right; i >= left; --i) {
-		          System.out.print(arr[bottom][i]+ " ");
-		      }
-		      // Since we have traversed the whole last
-		      // row, move up to the previous row.
-		      --bottom;
-		      dir = 4;
-		    } 
-		    else if (dir == 4) {     // moving bottom->up
-		      for (int i = bottom; i >= top; --i) {
-		          System.out.print(arr[i][left]+ " ");
-		      }
-		      // Since we have traversed the whole first
-		      // col, move right to the next column.
-		      ++left;
-		      dir = 1;
-		      
-		    }
-		  }
+			for (int i = 0; i < red; i++) {
+				for (int j = 0; j < stupac; j++) {
+					System.out.print(matrica[i][j] + "\t");
+				}
+				
+				System.out.println();
+				
+			}
+	}
+}
