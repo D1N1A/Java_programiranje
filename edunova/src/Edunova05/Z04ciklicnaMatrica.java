@@ -20,11 +20,33 @@ boolean dev = false;
 		
 		  int b = 1;
 		  
-		  int z = matrica[matrica.length-1] [0];
-		  int w = matrica [0] [matrica.length-1];
 		  int x=0;
 		  int y=0;
-		 
+		  int z=red-1;
+		  int w=stupac-1;
+		  
+		  
+			  
+			  for (int i=z;i<=x;i--)
+				  matrica [z][i]=b++;
+			  		z--;
+			  for (int i=x;i<=y;i--)
+				  matrica [i][x]=b++;
+			  		w--;
+			  for (int i=x;i>=z;i++)
+			  	  matrica [y][i]=b++;
+			  		x++;
+			  for (int i=y;i>=w;i++)
+				  matrica [i][w]=b++;
+			  		y++;
+		  
+				  
+			  
+			  
+			
+		
+		  
+		  
 		  
 			for (int i = 0; i < red; i++) {
 				for (int j = 0; j < stupac; j++) {
@@ -34,5 +56,10 @@ boolean dev = false;
 				System.out.println();
 				
 			}
+			
+			
+			
 	}
+	
+	
 }
