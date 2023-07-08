@@ -8,7 +8,7 @@ public class Z01 {
 		pas.setStaniste("kućni");
 		pas.setVrsta("pas");
 		
-		Som som = new Som(null, false, null);
+		Som som = new Som(null, false);
 		
 
 	}
