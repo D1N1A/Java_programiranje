@@ -19,48 +19,43 @@ boolean dev = false;
 		int matrica [] [] = new int [red] [stupac];
 		
 		  int b = 1;
+
+		  int m=matrica.length/red;
+		  int n=matrica.length/stupac;
 		  
 		  int x=0;
 		  int y=0;
-		  int z=red-1;
-		  int w=stupac-1;
+		  int z=m-1;
+		  int w=n-1;
 		  
-		while (y<=w)
-				{
+		  
+		  
+	while(y<=w)	  {
+		  for (int i=z;i<=x;i--)
+			  matrica [w][i]=b++;
+		  		w--;
+		  for (int i=w;i<=x;i--)
+			  matrica [i][y]=b++;
+		  		y--;
+		  for (int i=y;i>=w;i++)
+		  	  matrica [x][i]=b++;
+		  		x++;
+		  for (int i=x;i>=z;i++)
+			  matrica [i][w]=b++;
+		  		w++;
+	  
 			  
-			  for (int i=z;i>=x;i--)
-				  matrica [w][i]=b++;
-			  		w--;
-			  for (int i=w;i>=y;i--)
-				  matrica [i][x]=b++;
-			  		x--;
-			  for (int i=x;i<=z;i++)
-			  	  matrica [y][i]=b++;
-			  		x++;
-			  for (int i=y;i<=w;i++)
-				  matrica [i][w]=b++;
-			  		y++;
 		  
-				  
 	}
-			  
-			
-		
-		  
-		  
-		  
+	
+	  
+	  
+	  
 		for (int i = 0; i < red; i++) {
-				for (int j = 0; j < stupac; j++) {
-					System.out.print(matrica[i][j] + "\t");
-				}
-				
-				System.out.println();
-				
-		}
-			
-			
-			
+			for (int j = 0; j < stupac; j++) {
+
+			System.out.println();
 	}
-	
-	
+}
+	}
 }
