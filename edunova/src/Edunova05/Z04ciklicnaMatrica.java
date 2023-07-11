@@ -3,6 +3,39 @@ package Edunova05;
 import javax.swing.JOptionPane;
 
 public class Z04ciklicnaMatrica {
+static void matric(int x, int y, int matrica [][])  {
+
+	int b=1;
+	
+	  int x=0;
+	  int y=0;
+	  i=1;
+	  
+	  while (x < z && y < w) 	
+	  
+	  {for (int i z= ; i < w; --i) {
+          matrica[i][w - 1] = b++;
+      }
+      w--;
+
+     
+      if (y < z) {
+          for (int i = w - 1; i >= y; --i) {
+              matrica[z - 1][i] = b++;
+          }
+          z--;
+      }
+
+   
+      if (y < w) {
+          for (int i = z - 1; i >= y; --i) {
+              matrica[i][y] = b++;
+          }
+          b++;
+      }
+  }
+}
+	
 
 public static void main(String[] args) {
 	//Unos korisnika s if uvjetnim grananjem:
@@ -15,43 +48,16 @@ public static void main(String[] args) {
 		
 	//dodavanje vrijednosti 
 	
-	int matrica [] [] = new int [red] [stupac];
-	
-	  int b = 1;
-	  int u = red*stupac;
-	  
-	  int x=0;
-	  int y=0;
-	  int z=red-1;
-	  int w=stupac-1;
-	  
-	  
-	  
-while(y<=z)	  {
-	  for (int i=w;i<=y;i--)
-		  matrica [z][i]=b++;
-	  		z--;
-	  for (int i=z;i<=x;i--)
-		  matrica [i][y]=b++;
-	  		y--;
-	  for (int i=y;i>=w;i++)
-	  	  matrica [x][i]=b++;
-	  		x++;
-	  for (int i=x;i>=z;i++)
-		  matrica [i][w]=b++;
-	  		w++;		  
+
+    int matrica[][] = new int[red][stupac];
+    matric(z, w, matrica);
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            System.out.print(a[i][j] + " ");
+        }
+        System.out.println("");
+    }
 }
 
-  
-for (int i = 0; i < red; i++) {
-	for (int j = 0; j < stupac; j++) {
-		System.out.print(matrica[i][j] + "\t");
-	}
 	
-	System.out.println();
-	
-}
-}
-}
-}
-}		
+}	
