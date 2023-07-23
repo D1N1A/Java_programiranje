@@ -4,6 +4,12 @@ public class Biljeska {
 	private String opažanje;
 	private String preporuka;
 	
+	public Biljeska (int sifra, String opazanje, String preporuka, int termin, int tretman) {
+		super(sifra,termin,tretman);
+		this.opažanje = opažanje;
+		this.preporuka = preporuka;
+	}
+	
 	
 	public String getOpažanje() {
 		return opažanje;

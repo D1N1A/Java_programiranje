@@ -36,6 +36,7 @@ public class Izbornik {
 			System.out.println("5. Bilješka");
 			System.out.println("5. Izlaz iz programa");
 			ucitajStavkuIzbornika();
+		}
 			
 			private void ucitajStavkuIzbornika() {
 				
