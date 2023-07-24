@@ -21,12 +21,8 @@ public class ObradaBiljeska {
 	private void testniPodaci () {
 		
 		
-
-	private void testniPodaci() {
-		// TODO Auto-generated method stub
 		
 	}
 	
 
-}
 }

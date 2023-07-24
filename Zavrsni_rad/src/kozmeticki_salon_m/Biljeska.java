@@ -5,7 +5,6 @@ public class Biljeska {
 	private String preporuka;
 	
 	public Biljeska (int sifra, String opazanje, String preporuka, int termin, int tretman) {
-		super(sifra,opazanje,preporuka,termin,tretman);
 		this.opažanje = opažanje;
 		this.preporuka = preporuka;
 	}
@@ -24,12 +23,10 @@ public class Biljeska {
 		this.preporuka = preporuka;
 	}
 	public Biljeska(String opažanje, String preporuka) {
-		super();
+
 		this.opažanje = opažanje;
 		this.preporuka = preporuka;
-	}
-	public Biljeska() {
-		super();
+
 	}
 	
 	
