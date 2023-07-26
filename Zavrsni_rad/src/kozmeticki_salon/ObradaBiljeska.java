@@ -5,7 +5,9 @@ import java.util.List;
 
 import kozmeticki_salon_m.Biljeska;
 
+import kozmeticki_salon_m.Biljeska;
 
+import kozmetnicki_salon_m.Biljeska;
 
 public class ObradaBiljeska {
 	

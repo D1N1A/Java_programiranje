@@ -1,6 +1,6 @@
 package kozmeticki_salon_m;
 
-public class Stanje {
+public class Stanje extends Entitet{
 	private String naziv;
 	private String opis;
 	public String getNaziv() {
@@ -15,15 +15,15 @@ public class Stanje {
 	public void setOpis(String opis) {
 		this.opis = opis;
 	}
-	public Stanje(String naziv, String opis) {
-		super();
+	public Stanje(int sifra, String naziv, String opis) {
+		super(sifra);
 		this.naziv = naziv;
 		this.opis = opis;
 	}
-	public Stanje() {
-		super();
+	public Stanje(int sifra) {
+		super(sifra);
 	}
-	
+
 	
 
 }

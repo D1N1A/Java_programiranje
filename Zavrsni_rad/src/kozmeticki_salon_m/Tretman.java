@@ -1,10 +1,8 @@
 package kozmeticki_salon_m;
 
-public class Tretman {
+public class Tretman extends Entitet {
 	private String naziv;
 	private float cijena;
-	
-	
 	public String getNaziv() {
 		return naziv;
 	}
@@ -17,15 +15,17 @@ public class Tretman {
 	public void setCijena(float cijena) {
 		this.cijena = cijena;
 	}
-	public Tretman(String naziv, float cijena) {
-		super();
+	public Tretman(int sifra, String naziv, float cijena) {
+		super(sifra);
 		this.naziv = naziv;
 		this.cijena = cijena;
 	}
-	public Tretman() {
-		super();
+	public Tretman(int sifra) {
+		super(sifra);
 	}
 	
+	
+
 	
 
 }
