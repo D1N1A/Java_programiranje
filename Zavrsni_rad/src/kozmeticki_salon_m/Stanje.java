@@ -23,6 +23,9 @@ public class Stanje extends Entitet{
 	public Stanje(int sifra) {
 		super(sifra);
 	}
+	public Stanje() {
+		// TODO Auto-generated constructor stub
+	}
 
 	
 

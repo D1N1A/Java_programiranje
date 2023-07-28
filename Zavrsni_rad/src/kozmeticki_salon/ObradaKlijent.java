@@ -68,6 +68,11 @@ public class ObradaKlijent {
 			
 		}
 	
+private void brisanjeKlijenta() {
+		// TODO Auto-generated method stub
+		
+	}
+
 public void pregledKlijenata() {
 	System.out.println("----------------------");
 	System.out.println("-------Klijenti-------");
@@ -91,6 +96,7 @@ private void dodavanjeKlijenta() {
 
 private void promjenaKlijenta() {
 	pregledKlijenata ();
+	int index;
 	Klijent k = klijenti.get(index-1);
 	k.setIme(Pomocno.unosString("Unesi ime klijenta(" + k.getIme() + "):", "Ime obavezno"));
 	k.setPrezime(Pomocno.unosString("Unesi prezime klijenta(" + k.getPrezime() + "):", "Prezime obavezno"));

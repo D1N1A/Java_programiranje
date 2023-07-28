@@ -40,6 +40,9 @@ public class Klijent extends Entitet {
 	public Klijent(int sifra) {
 		super(sifra);
 	}
+	public Klijent() {
+		// TODO Auto-generated constructor stub
+	}
 
 	
 

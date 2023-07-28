@@ -34,6 +34,11 @@ public class ObradaStanje {
 		System.out.println("5. Povratak na prethodni izbornik");
 		ucitajStavkuIzvornika();
 	}
+	private void ucitajStavkuIzvornika() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private void ucitajStavkuIzbornika() {
 		switch(Pomocno.unosRasponBroja("Odaberi stavku izbornika stanja", "Odabir mora biti 1-5", 1, 5)) {
 		case 1:
