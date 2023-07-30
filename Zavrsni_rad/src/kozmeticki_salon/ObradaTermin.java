@@ -65,9 +65,20 @@ public class ObradaTermin {
 		System.out.println("----------------------");
 		int b=1;
 		for (Termin t : termini) {
-			System.out.println(b++ + ". " + t.g.());
+			System.out.println(b++ + ". " + t.getDatum + t.getVrijeme());
 		}
 		System.out.println("----------------------");
+	}
+	
+	private void dodavanjeTermina() {
+		Termin t = new Termin ();
+		t.setDatum(Pomocno.unosDatum("Unesi datum termina"));
+		t.setVrijeme(Pomocno.unosRasponBroja("Unesi u koliko sati je termin:", "Obavezan unos vremena", 7.00, 21.00));
+		t.setNaziv(Pomocno.unosString("Unesi naziv tretmana", "Obavezan unos naziva tretmana"));
+		
+	
+		
+		
 	}
 	
 	

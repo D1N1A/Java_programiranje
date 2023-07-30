@@ -6,6 +6,7 @@ import java.util.Date;
 public class Termin extends Tretman{
 	private Date datum;
 	private Time vrijeme;
+	public int getDatum;
 	public Date getDatum() {
 		return datum;
 	}
@@ -26,6 +27,7 @@ public class Termin extends Tretman{
 	public Termin(int sifra, String naziv, float cijena) {
 		super(sifra, naziv, cijena);
 	}
+
 
 	
 }

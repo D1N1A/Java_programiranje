@@ -11,13 +11,13 @@ public class Pomocno {
 	private static final String FORMAT_DATUMA="dd. MM. yyyy.";
 	private static SimpleDateFormat df = new SimpleDateFormat(FORMAT_DATUMA);
 
-	public static int unosRasponBroja(String poruka, String greska, int min, int max) {
+	public static int unosRasponBroja(String poruka, String greska, float, float) {
 		int i;
 		while (true) {
 			try {
 				System.out.print(poruka);
 				i = Integer.parseInt(ulaz.nextLine());
-				if (i >= min && i <= max) {
+				if (i >=  && i <= f) {
 					return i;
 				}
 				System.out.println(greska);
@@ -68,6 +68,7 @@ public class Pomocno {
 				System.out.println("Obavezan unos datuma u formatu " + FORMAT_DATUMA + ", npr. " + df.format(new Date()) + " za danas.");
 			}
 		}
+	
 
 	}
 

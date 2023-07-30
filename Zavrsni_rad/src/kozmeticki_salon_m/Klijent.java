@@ -1,6 +1,6 @@
 package kozmeticki_salon_m;
 
-public class Klijent extends Entitet {
+public class Klijent extends Tretman{
 	
 	private String ime;
 	private String prezime;
@@ -30,20 +30,19 @@ public class Klijent extends Entitet {
 	public void setE_mail(String e_mail) {
 		this.e_mail = e_mail;
 	}
-	public Klijent(int sifra, String ime, String prezime, String kontakt_tel, String e_mail) {
-		super(sifra);
+	public Klijent(int sifra, String naziv, float cijena, String ime, String prezime, String kontakt_tel,
+			String e_mail) {
+		super(sifra, naziv, cijena);
 		this.ime = ime;
 		this.prezime = prezime;
 		this.kontakt_tel = kontakt_tel;
 		this.e_mail = e_mail;
 	}
-	public Klijent(int sifra) {
-		super(sifra);
-	}
-	public Klijent() {
-		// TODO Auto-generated constructor stub
+	public Klijent(int sifra, String naziv, float cijena) {
+		super(sifra, naziv, cijena);
 	}
 
+	
 	
 
 }
