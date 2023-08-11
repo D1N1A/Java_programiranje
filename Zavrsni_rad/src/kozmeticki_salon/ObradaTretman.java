@@ -68,6 +68,21 @@ public class ObradaTretman {
 		}
 	
 	private void dodavanjeTretman () {
+		Tretman t = new Tretman ();
+		t.setSifra(Pomocno.unosRasponBroja("Unesi šifru tretmana:", "Pozitivan broj", 1, Integer.MAX_VALUE));
+		t.setNaziv(Pomocno.unosString("Unesi naziv tretmana", "Pogrešan unos"));
+		t.setCijena(Pomocno.unosFloat("Unesi cijenu", "Pogrešan unos"));
+		
+	}
+	
+	
+	private void promjenaTretman();
+	pregledTretman();
+	int index = Pomocno.unosRasponBroja("Odaberi redni broj tretmana", "Nije dobar odabir", 1, tretman.size());
+	tretman t = tretmani.get(index-1);
+	t.set
+	
+	private void dodavanjeTretman () {
 
 	public ObradaTretman() {
 		// TODO Auto-generated constructor stub
