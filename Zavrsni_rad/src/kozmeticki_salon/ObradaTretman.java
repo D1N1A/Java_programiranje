@@ -69,20 +69,30 @@ public class ObradaTretman {
 	
 	private void dodavanjeTretman () {
 		Tretman t = new Tretman ();
-		t.setSifra(Pomocno.unosRasponBroja("Unesi šifru tretmana:", "Pozitivan broj", 1, Integer.MAX_VALUE));
-		t.setNaziv(Pomocno.unosString("Unesi naziv tretmana", "Pogrešan unos"));
-		t.setCijena(Pomocno.unosFloat("Unesi cijenu", "Pogrešan unos"));
+		t.getSifra(Pomocno.unosRasponBroja("Unesi šifru tretmana:", "Pozitivan broj", 1, Integer.MAX_VALUE));
+		t.getNaziv(Pomocno.unosString("Unesi naziv tretmana:", "Pogrešan unos"));
+		t.getCijena(Pomocno.unosFloat("Unesi cijenu:", "Pogrešan unos"));
 		
 	}
 	
 	
-	private void promjenaTretman();
-	pregledTretman();
-	int index = Pomocno.unosRasponBroja("Odaberi redni broj tretmana", "Nije dobar odabir", 1, tretman.size());
-	tretman t = tretmani.get(index-1);
-	t.set
-	
-	private void dodavanjeTretman () {
+	private void promjenaTretman() {
+		pregledTretmana();
+		int index = Pomocno.unosRasponBroja("Odaberi redni broj tretmana", "Nije dobar odabir",1, tretmani.size());
+		Tretman t = tretmani.get(index-1);
+		t.setSifra(Pomocno.unosRasponBroja("Unesi šifru tretmana (" + t.getSifra() + "): ", "Pozitivan broj", 1, Integer.MAX_VALUE));
+		t.setNaziv(Pomocno.unosString("Unesi naziv tretmana (" + t.getNaziv() + "): ", "Naziv obavezan"));
+		t.setCijena(Pomocno.unosFloat("Unesi cijenu (" + t.getCijena() + "): ", "Pogrešan unos"));
+		
+	private void brisanjeTretmana () {
+		pregledTretmana();
+		int index = Pomocno.unosRasponBroja("Odaberi redni broj tretmana", "Nije dobar odabir", 1, tretmani.size());
+		tretmani.remove(index-1);
+	}
+		
+	}
+
+
 
 	public ObradaTretman() {
 		// TODO Auto-generated constructor stub
