@@ -25,7 +25,7 @@ public class ObradaStanje {
 	stanja.add(new Stanje(2, "zdrava", null));
 	}
 	
-	private void prikaziIzbornik () {
+	public void prikaziIzbornik () {
 		System.out.println("\nStanje izbornik");
 		System.out.println("1. Pregled postojećih stanja");
 		System.out.println("2. Unos novog stanja");

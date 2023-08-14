@@ -34,7 +34,7 @@ public class Izbornik {
 			System.out.println("3. Klijent");
 			System.out.println("4. Stanje");
 			System.out.println("5. Bilješka");
-			System.out.println("5. Izlaz iz programa");
+			System.out.println("6. Izlaz iz programa");
 			ucitajStavkuIzbornika();
 		}
 			
@@ -69,5 +69,7 @@ public class Izbornik {
 				}
 				
 		}
+			
+
 	}
 
