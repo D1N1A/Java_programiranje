@@ -30,8 +30,7 @@ public class Klijent extends Tretman{
 	public void setE_mail(String e_mail) {
 		this.e_mail = e_mail;
 	}
-	public Klijent(int sifra, String naziv, float cijena, String ime, String prezime, String kontakt_tel,
-			String e_mail) {
+	public Klijent(int sifra, String naziv, String ime, String prezime, String kontakt_tel) {
 		super(sifra, naziv, cijena);
 		this.ime = ime;
 		this.prezime = prezime;
@@ -40,6 +39,9 @@ public class Klijent extends Tretman{
 	}
 	public Klijent(int sifra, String naziv, float cijena) {
 		super(sifra, naziv, cijena);
+	}
+	public Klijent() {
+		// TODO Auto-generated constructor stub
 	}
 
 	

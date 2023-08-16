@@ -42,7 +42,7 @@ public class ObradaTermin {
 			prikaziIzbornik();
 			break;
 		case 2:
-			dodavanjeTermin();
+			dodavanjeTermina();
 			prikaziIzbornik();
 			break;
 		case 3:
@@ -58,6 +58,18 @@ public class ObradaTermin {
 		}
 	}
 	
+	private void brisanjeTermin() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void promjenaTermin() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	private void pregledTermin() {
 		
 		System.out.println("----------------------");

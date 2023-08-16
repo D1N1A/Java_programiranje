@@ -27,6 +27,13 @@ public class Termin extends Tretman{
 	public Termin(int sifra, String naziv, float cijena) {
 		super(sifra, naziv, cijena);
 	}
+	public Termin() {
+		// TODO Auto-generated constructor stub
+	}
+	public void setVrijeme(int unosRasponBroja) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 	

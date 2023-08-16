@@ -107,7 +107,9 @@ private void promjenaKlijenta() {
 	
 private void brisanjeKlijenta () {
 	pregledKlijenata();
-	int index = Pomocno.unosRasponBroja("Odaberi redni broj klijenta: ", "Nije dobar odabir", 1, polaznici.size());
+	int index = Pomocno.unosRasponBroja("Odaberi redni broj klijenta: ", "Nije dobar odabir", 1, klijenti.size());
+	klijenti.remove(index-1);
+	
 }
 
 

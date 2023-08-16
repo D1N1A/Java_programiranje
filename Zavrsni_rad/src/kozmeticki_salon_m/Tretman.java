@@ -2,7 +2,7 @@ package kozmeticki_salon_m;
 
 public class Tretman extends Entitet {
 	private String naziv;
-	private float cijena;
+	public static float cijena;
 	public String getNaziv() {
 		return naziv;
 	}
@@ -22,6 +22,9 @@ public class Tretman extends Entitet {
 	}
 	public Tretman(int sifra) {
 		super(sifra);
+	}
+	public Tretman() {
+		// TODO Auto-generated constructor stub
 	}
 	
 	

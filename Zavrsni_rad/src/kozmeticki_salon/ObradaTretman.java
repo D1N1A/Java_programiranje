@@ -37,7 +37,7 @@ public class ObradaTretman {
 		switch(Pomocno.unosRasponBroja("Odaberi stavku izbornika tretman", "Odabit mora biti 1-5",	1,	5)) {
 		case 1:
 			pregledTretman ();
-			prikaiIzbornik();
+			prikaziIzbornik();
 			break;
 		case 2:
 			dodavanjeTretman();
@@ -45,10 +45,10 @@ public class ObradaTretman {
 			break;
 		case 3:
 			promjenaTretman();
-			prikaziizbornik();
+			prikaziIzbornik();
 			break;
 		case 4:
-			brisanjeTretman();
+			brisanjeTretmana();
 			prikaziIzbornik();
 			break;
 		case 5:
@@ -69,9 +69,9 @@ public class ObradaTretman {
 	
 	private void dodavanjeTretman () {
 		Tretman t = new Tretman ();
-		t.getSifra(Pomocno.unosRasponBroja("Unesi šifru tretmana:", "Pozitivan broj", 1, Integer.MAX_VALUE));
-		t.getNaziv(Pomocno.unosString("Unesi naziv tretmana:", "Pogrešan unos"));
-		t.getCijena(Pomocno.unosFloat("Unesi cijenu:", "Pogrešan unos"));
+		t.setSifra(Pomocno.unosRasponBroja("Unesi šifru tretmana:", "Pozitivan broj", 1, Integer.MAX_VALUE));
+		t.setNaziv(Pomocno.unosString("Unesi naziv tretmana:", "Pogrešan unos"));
+		t.setCijena(Pomocno.unosFloat("Unesi cijenu:", "Pogrešan unos"));
 		
 	}
 	
@@ -83,6 +83,7 @@ public class ObradaTretman {
 		t.setSifra(Pomocno.unosRasponBroja("Unesi šifru tretmana (" + t.getSifra() + "): ", "Pozitivan broj", 1, Integer.MAX_VALUE));
 		t.setNaziv(Pomocno.unosString("Unesi naziv tretmana (" + t.getNaziv() + "): ", "Naziv obavezan"));
 		t.setCijena(Pomocno.unosFloat("Unesi cijenu (" + t.getCijena() + "): ", "Pogrešan unos"));
+	}
 		
 	private void brisanjeTretmana () {
 		pregledTretmana();
@@ -90,12 +91,14 @@ public class ObradaTretman {
 		tretmani.remove(index-1);
 	}
 		
-	}
 
 
 
-	public ObradaTretman() {
-		// TODO Auto-generated constructor stub
+
+	private void pregledTretmana() {
+		// TODO Auto-generated method stub
+		
+
 	}
 
 }
