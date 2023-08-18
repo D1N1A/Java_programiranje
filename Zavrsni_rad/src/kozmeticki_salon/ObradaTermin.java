@@ -100,8 +100,6 @@ public class ObradaTermin {
 	}
 
 
-	public ObradaTermin() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	
@@ -110,4 +108,3 @@ public class ObradaTermin {
 		
 
 
-}

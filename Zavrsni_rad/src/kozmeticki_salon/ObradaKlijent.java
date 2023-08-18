@@ -96,24 +96,25 @@ private void dodavanjeKlijenta() {
 
 private void promjenaKlijenta() {
 	pregledKlijenata ();
-	int index;
+	int index = Pomocno.unosRasponBroja("Odaberi redni broj klineta:", "Nije dobar odabir", 1, klijenti.size());
 	Klijent k = klijenti.get(index-1);
 	k.setIme(Pomocno.unosString("Unesi ime klijenta(" + k.getIme() + "):", "Ime obavezno"));
 	k.setPrezime(Pomocno.unosString("Unesi prezime klijenta(" + k.getPrezime() + "):", "Prezime obavezno"));
 	k.setKontakt_tel(Pomocno.unosString("Unesi kontakt telefon klijenta(" + k.getKontakt_tel() +"):", "Unos broja obavezan"));
 	k.setE_mail(Pomocno.unosString("Unesi e-mail klijenta(" + k.getE_mail() +"):", "Unos e-maila obavezan"));
 
-
+}
 	
-private void brisanjeKlijenta () {
+private void brisanjeKlijenata () {
 	pregledKlijenata();
 	int index = Pomocno.unosRasponBroja("Odaberi redni broj klijenta: ", "Nije dobar odabir", 1, klijenti.size());
 	klijenti.remove(index-1);
-	
+
 }
+
 
 
 		
 	}
 
-}
+

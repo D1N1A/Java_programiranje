@@ -10,18 +10,20 @@ public class kalkulator {
 		double zbroj2=0;
 		double postotak;
 		
-		int ime = Integer.parseInt(JOptionPane.showInputDialog("Unesi svoje ime:"));
-		int imeS = Integer.parseInt(JOptionPane.showInputDialog("Unesi ime simpatije:"));
+		char ime = Integer.parseInt(JOptionPane.showInputDialog("Unesi svoje ime:"));
+		char imeS = Integer.parseInt(JOptionPane.showInputDialog("Unesi ime simpatije:"));
 		
-		int[] ime  = new int [ime];
+		int ime1  = new int [ime1];
 		int[] imeS = new int [imeS];
 		
 		int b=0;
 		int i=0;
 		
-		for (int i : ime)
+		for (char ch
+				: ime)
 		{
-			b=(int) ime[i++]
+			int i1;
+			b=(int) ime1[i1++]
 					sum1=sum1+b;
 		}
 		i=0;
