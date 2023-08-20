@@ -4,14 +4,13 @@ import java.util.Scanner;
 
 public class Izbornik {
 
-		private ObradaBiljeska obradaBiljeska;
 		private ObradaKlijent obradaKlijent;
 		private ObradaStanje obradaStanje;
 		private ObradaTermin obradaTermin;
 		private ObradaTretman obradaTretman;
 		
 		public Izbornik () {
-			obradaBiljeska = new ObradaBiljeska ();
+			new ObradaBiljeska ();
 			obradaKlijent = new ObradaKlijent ();
 			obradaStanje = new ObradaStanje ();
 			obradaTermin = new ObradaTermin ();

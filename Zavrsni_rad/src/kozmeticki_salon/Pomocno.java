@@ -11,13 +11,13 @@ public class Pomocno {
 	private static final String FORMAT_DATUMA="dd. MM. yyyy.";
 	private static SimpleDateFormat df = new SimpleDateFormat(FORMAT_DATUMA);
 
-	public static int unosRasponBroja(String poruka, String greska, double d, double f) {
+	public static int unosRasponBroja(String poruka, String greska, int min, int max) {
 		int i;
 		while (true) {
 			try {
 				System.out.print(poruka);
 				i = Integer.parseInt(ulaz.nextLine());
-				if (i >=d  && i <= f) {
+				if (i >=min  && i <= max) {
 					return i;
 				}
 				System.out.println(greska);
