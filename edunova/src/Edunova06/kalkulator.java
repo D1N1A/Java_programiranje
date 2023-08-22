@@ -1,39 +1,95 @@
 package Edunova06;
 
-import java.util.Scanner;
+import java.util.*;
+
+import javax.swing.JOptionPane;
+
+public class Kalkulator {
+ 
+    public static void kalkulator(char[] a, char[] b) {
+        int l = 1, sc = 0, rc = 0, fc = 5;
+        String f = "flames";
+        char[] flames = f.toCharArray();
+        String q = new String(a);
+        String w = new String(b);
+ 
+        int n = a.length;
+        int m = b.length;
+        int tc = n + m;
+ 
+        for (int i = 0; i < n; i++) {
+            char c = a[i];
+            for (int j = 0; j < m; j++) {
+                if (c == b[j]) {
+                    a[i] = b[j] = '-'; 
+                    sc += 2;
+                    break;
+                }
+            }
+        }
+ 
+        rc = tc - sc;
+        int i = 0;
+ 
+        while (i >= 0) {
+            if (l == rc) {
+                for (int k = i; k < f.length()-1; k++) {
+                    flames[k] = flames[k + 1];
+                }
+                flames[flames.length-1] = '0';
+                fc--;
+                i--;
+                l = 0;
+            }
+            if (i == fc) {
+                i = -1;
+            }
+            if (fc == 0) {
+                break;
+            }
+            l++;
+            i++;
+        }
+ 
+   
+        char result = flames[0];
+        switch (result) {
+            case 'e':
+                System.out.println(q + " is ENEMY to " + w);
+                break;
+            case 'f':
+                System.out.println(q + " is FRIEND to " + w);
+                break;
+            case 'm':
+                System.out.println(q + " is going to MARRY " + w);
+                break;
+            case 'l':
+                System.out.println(q + " is in LOVE with " + w);
+                break;
+            case 'a':
+                System.out.println(q + " has more AFFECTION on " + w);
+                break;
+            default:
+                System.out.println(q + " and " + w + " are SISTERS/BROTHERS ");
+                break;
+        }
+    }
+ 
+
+    public static void main(String[] args) {
+        String a = JOptionPane.showInputDialog("Unesi svoje ime :");
+        String b = JOptionPane.showInputDialog("Unesi ime svoje simpatije: ");
+        char[] charA = a.toCharArray();
+        char[] charB = b.toCharArray();
+ 
+        flame(charA, charB);
+    }
 
 
-public class kalkulator {
-
-	public static void main(String[] args) {
-		double sum1=0,sum2=0,postotak;
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Vaše ime :");
-		String s1=sc.nextLine();
-		System.out.println("Ime vaše simpatije: ");
-		String s2=sc.next();
-		char[] arr1=s1.toCharArray();
-		char[] arr2=s2.toCharArray();
-		int b=0, i=0;
-		for (char ch : arr1)
-		 {
-			b=(int) arr1[i++];
-			sum1=sum1+b;
-		 }
-	
-		i=0;
-		for(char ch : arr2)
-		 {
-			b=(int) arr2[i++];
-			sum2=sum2+b;
-		 }
-	if (sum1<=sum2)
-		postotak=(sum1/sum2)*100;
-	else
-		postotak=(sum2/sum1)*100;
-	System.out.println("Postotak zaljubljenosti je = "+postotak);
+	private static void flame(char[] charA, char[] charB) {
+		// TODO Auto-generated method stub
 		
 	}
-	
 }
+
 
