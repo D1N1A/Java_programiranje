@@ -35,13 +35,11 @@ public class Z04ciklicnaMatrica {
 		}
 	}
 	public static void main(String[] args) {
-		int x=Integer.parseInt(R);
+		int x=Integer.parseInt(JOptionPane.showInputDialog("Unesi broj redova: "));
 		int xS=0, xL=x-1;
-		int y =Integer.parseInt(S);
+		int y =Integer.parseInt(JOptionPane.showInputDialog("Unesi broj stupaca: "));
 		int yS=0, yL=y-1;
 		
-		String R = JOptionPane.showInputDialog("Unesi broj redova: ");
-		String S = JOptionPane.showInputDialog("Unesi broj stupaca: ");
 		
 
 	}
