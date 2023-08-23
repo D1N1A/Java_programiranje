@@ -37,7 +37,7 @@ class Postotak
 	public static void main(String args[])
 		{
 	
-			Scanner sc=new Scanner(System.in);
+			Scanner sc=new Scanner(System.in);{
 			System.out.println("Unesi svoje ime: ");
 			String str1=sc.nextLine();
 			System.out.println("Unesi ime svoje simpatije: ");
@@ -48,7 +48,8 @@ class Postotak
 			System.out.println("Postotak zaljubljenosti je: "+Math.round(p.per));
 		
 			}
-}
+		}
+	}
 		
 
 

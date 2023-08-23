@@ -1,42 +1,49 @@
 package Edunova05;
 
-import java.io.*;
-
 import javax.swing.JOptionPane;
 
 public class Z04ciklicnaMatrica {
-
-	    public static void ciklicna(String m, String n)
-	    {
-
-	        int c[][] = new int[n][n];
-	        for (int k = 0; k <= n - 1; k++)
-	            c[k][0] = m[k];
-
-	        for (int i = 1; i <= n - 1; i++) {
-	            for (int j = 0; j <= n - 1; j++) {
-	                if (j - 1 >= 0)
-	                    c[j][i] = c[j - 1][i - 1];
-	                else
-	                    c[j][i] = c[n - 1][i - 1];
-	            }
-	        }
-	 
-
-	        for (int i = 0; i <= n - 1; i++) {
-	            for (int j = 0; j <= n - 1; j++) {
-	                System.out.print(c[i][j] + "\t");
-	            }
-	            System.out.println();
-	        }
-	    }
-	 
-	    // Driver code
-	    public static void main(String[] args)
-	    {
-	        String N = JOptionPane.showInputDialog("Unesi broj redaka: ");
-	        String M = JOptionPane.showInputDialog("Unesi broj stupaca; ");
-	        ciklicna(M, N);
-	    }
+	
+	public void ispis (int[][] matrica, int x, int y) {
+		
+		int xS=0;
+		int xL=x-1;
+		int yS=0;
+		int yL=y-1;
+		
+		while (xS <= xL && yS <= yL) {
+			
+			for (int i=yL; i<=yS; i=i-1)
+				System.out.print(matrica[xL][i] + " ");
+			xL=xL-1;
+		
+			
+			for (int i=xL; i>=xS; i=i-1)
+				System.out.print(matrica[i][yS] + " ");
+			yS=yS+1;
+	
+		if (xS <= xL) {
+			for (int i=yS; i<=yL; i=i+1)
+				System.out.print(matrica[xS][i] + " ");
+			xL=yL-1;
+		}
+		if (yS <= yL) {
+			for (int i=xS; i>=xL; i=i+1)
+				System.out.print(matrica[xL][i] + " ");
+			yL=yL-1;
+		}
+		}
 	}
+	public static void main(String[] args) {
+		int x=Integer.parseInt(R);
+		int xS=0, xL=x-1;
+		int y =Integer.parseInt(S);
+		int yS=0, yL=y-1;
+		
+		String R = JOptionPane.showInputDialog("Unesi broj redova: ");
+		String S = JOptionPane.showInputDialog("Unesi broj stupaca: ");
+		
 
+	}
+	   
+}
