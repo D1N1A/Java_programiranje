@@ -1,95 +1,57 @@
 package Edunova06;
 
-import java.util.*;
+import java.util.Scanner;
 
-import javax.swing.JOptionPane;
+
 
 public class Kalkulator {
  
-    public static void kalkulator(char[] a, char[] b) {
-        int l = 1, sc = 0, rc = 0, fc = 5;
-        String f = "flames";
-        char[] flames = f.toCharArray();
-        String q = new String(a);
-        String w = new String(b);
+class Postotak
+	{
+		double per;
+		Postotak(char[] arr1, char[] arr2)
+		{
+			double s1=0,s2=0;
+			int n=0,i=0;
+			for(char ch : arr1)
+			{
+				n=(int) arr1[i++];
+				s1=s1+n;
+			}
+			i=0;
+			for(char ch : arr2)
+			{
+				n=(int) arr2[i++];
+				s2=s2+n;
+			}
+			if(s1<=s2)
+				per=(s1/s2)*100;
+			else
+				per=(s2/s1)*100;	
+		}
  
-        int n = a.length;
-        int m = b.length;
-        int tc = n + m;
  
-        for (int i = 0; i < n; i++) {
-            char c = a[i];
-            for (int j = 0; j < m; j++) {
-                if (c == b[j]) {
-                    a[i] = b[j] = '-'; 
-                    sc += 2;
-                    break;
-                }
-            }
-        }
- 
-        rc = tc - sc;
-        int i = 0;
- 
-        while (i >= 0) {
-            if (l == rc) {
-                for (int k = i; k < f.length()-1; k++) {
-                    flames[k] = flames[k + 1];
-                }
-                flames[flames.length-1] = '0';
-                fc--;
-                i--;
-                l = 0;
-            }
-            if (i == fc) {
-                i = -1;
-            }
-            if (fc == 0) {
-                break;
-            }
-            l++;
-            i++;
-        }
- 
-   
-        char result = flames[0];
-        switch (result) {
-            case 'e':
-                System.out.println(q + " is ENEMY to " + w);
-                break;
-            case 'f':
-                System.out.println(q + " is FRIEND to " + w);
-                break;
-            case 'm':
-                System.out.println(q + " is going to MARRY " + w);
-                break;
-            case 'l':
-                System.out.println(q + " is in LOVE with " + w);
-                break;
-            case 'a':
-                System.out.println(q + " has more AFFECTION on " + w);
-                break;
-            default:
-                System.out.println(q + " and " + w + " are SISTERS/BROTHERS ");
-                break;
-        }
-    }
- 
+	} 
 
-    public static void main(String[] args) {
-        String a = JOptionPane.showInputDialog("Unesi svoje ime :");
-        String b = JOptionPane.showInputDialog("Unesi ime svoje simpatije: ");
-        char[] charA = a.toCharArray();
-        char[] charB = b.toCharArray();
- 
-        flame(charA, charB);
-    }
-
-
-	private static void flame(char[] charA, char[] charB) {
-		// TODO Auto-generated method stub
+	
+	public static void main(String args[])
+		{
+	
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Unesi svoje ime: ");
+			String str1=sc.nextLine();
+			System.out.println("Unesi ime svoje simpatije: ");
+			String str2=sc.next();	
+			char[] a1= str1.toCharArray();
+			char[] a2= str2.toCharArray();
+			Postotak p=new Postotak(a1,a2);
+			System.out.println("Postotak zaljubljenosti je: "+Math.round(p.per));
 		
-	}
+			}
 }
+		
+
+
+
 
 
