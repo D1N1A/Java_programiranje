@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Kalkulator {
  
-class Postotak
+static class Postotak
 	{
 		double per;
 		Postotak(char[] arr1, char[] arr2)
@@ -44,6 +44,7 @@ class Postotak
 			String str2=sc.next();	
 			char[] a1= str1.toCharArray();
 			char[] a2= str2.toCharArray();
+			sc.close();
 			Postotak p=new Postotak(a1,a2);
 			System.out.println("Postotak zaljubljenosti je: "+Math.round(p.per));
 		
