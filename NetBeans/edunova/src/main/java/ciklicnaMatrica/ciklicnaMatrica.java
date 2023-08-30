@@ -6,7 +6,7 @@ public class ciklicnaMatrica {
 	
 	public static void main(String[] args) {
             
-            new Prozor ().setVisible(true);
+            new ciklicnaMatrica().setVisible(true);
 		
 		boolean dev = false;
 		
@@ -79,4 +79,8 @@ public class ciklicnaMatrica {
 		
 
 }
+
+    private void setVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
