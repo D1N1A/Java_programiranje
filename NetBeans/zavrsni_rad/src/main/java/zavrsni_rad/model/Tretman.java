@@ -1,6 +1,14 @@
-package kozmeticki_salon_m;
+package zavrsni_rad.model;
 
-public class Tretman extends Entitet {
+
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+
+
+@Entity
+public class Tretman extends Klijent {
+        @OneToMany
 	private String naziv;
 	public static float cijena;
 	public String getNaziv() {
@@ -13,16 +21,14 @@ public class Tretman extends Entitet {
 		return cijena;
 	}
 	public void setCijena(float cijena) {
-		this.cijena = cijena;
+		Tretman.cijena = cijena;
 	}
 	public Tretman(int sifra, String naziv, float cijena) {
-		super(sifra);
+
 		this.naziv = naziv;
-		this.cijena = cijena;
+		Tretman.cijena = cijena;
 	}
-	public Tretman(int sifra) {
-		super(sifra);
-	}
+	
 	public Tretman() {
 		// TODO Auto-generated constructor stub
 	}

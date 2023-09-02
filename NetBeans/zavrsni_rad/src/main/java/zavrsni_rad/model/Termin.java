@@ -1,4 +1,4 @@
-package kozmeticki_salon_m;
+package zavrsni_rad.model;
 
 import java.sql.Time;
 import java.util.Date;

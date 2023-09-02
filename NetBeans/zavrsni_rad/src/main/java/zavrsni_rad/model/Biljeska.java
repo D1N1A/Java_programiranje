@@ -1,41 +1,42 @@
-package kozmeticki_salon_m;
+package zavrsni_rad.model;
 
-public class Biljeska extends Entitet {
-	private String opažanje;
+public class Biljeska extends Tretman {
+	private String opis;
 	private String preporuka;
+
+    public Biljeska(String opis, String preporuka, int sifra, String naziv, float cijena) {
+        super(sifra, naziv, cijena);
+        this.opis = opis;
+        this.preporuka = preporuka;
+    }
+
+    public Biljeska(String opis, String preporuka) {
+        this.opis = opis;
+        this.preporuka = preporuka;
+    }
+
+    public Biljeska() {
+    }
+
+    public String getOpis() {
+        return opis;
+    }
+
+    public void setOpis(String opis) {
+        this.opis = opis;
+    }
+
+    public String getPreporuka() {
+        return preporuka;
+    }
+
+    public void setPreporuka(String preporuka) {
+        this.preporuka = preporuka;
+    }
+
+ 
 	
-	public Biljeska (int sifra, String opazanje, String preporuka, int termin, int tretman) {
-		this.opažanje = opažanje;
-		this.preporuka = preporuka;
-	}
 
-	public String getOpažanje() {
-		return opažanje;
-	}
-
-	public void setOpažanje(String opažanje) {
-		this.opažanje = opažanje;
-	}
-
-	public String getPreporuka() {
-		return preporuka;
-	}
-
-	public void setPreporuka(String preporuka) {
-		this.preporuka = preporuka;
-	}
-
-	public Biljeska(int sifra, String opažanje, String preporuka) {
-		super(sifra);
-		this.opažanje = opažanje;
-		this.preporuka = preporuka;
-	}
-
-	public Biljeska(int sifra) {
-		super(sifra);
-	}
-	
-	
 	
 	
 

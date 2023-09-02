@@ -1,33 +1,36 @@
-package kozmeticki_salon_m;
+package zavrsni_rad.model;
 
+
+
+import org.hibernate.annotations.GenericGenerator;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public abstract class Entitet {
-	
 
+    @Id
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
+    private Long id;
 
-	private int sifra;
+    public Entitet(Long id) {
+        this.id = id;
+    }
 
-	public int getSifra() {
-		return sifra;
-	}
+    public Entitet() {
+    }
 
+    public Long getId() {
+        return id;
+    }
 
-	public Entitet (int sifra) {
-		super ();
-		this.sifra = sifra;
-			
-
-	}
-
-	public Entitet() {
-		super();
-	}
-
-
-
-
-	public void setSifra(int sifra) {
-		this.sifra = sifra;
-	}
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
+}
 
 

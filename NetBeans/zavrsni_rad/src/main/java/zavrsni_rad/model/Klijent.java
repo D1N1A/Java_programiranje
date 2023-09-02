@@ -1,7 +1,13 @@
-package kozmeticki_salon_m;
+package zavrsni_rad.model;
 
-public class Klijent extends Tretman{
-	
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+
+
+
+@Entity
+public class Klijent extends Entitet{
+	@OneToMany
 	private String ime;
 	private String prezime;
 	private String kontakt_tel;
@@ -31,14 +37,14 @@ public class Klijent extends Tretman{
 		this.e_mail = e_mail;
 	}
 	public Klijent(int sifra, String naziv, String ime, String prezime, String kontakt_tel) {
-		super(sifra, naziv, cijena);
+		
 		this.ime = ime;
 		this.prezime = prezime;
 		this.kontakt_tel = kontakt_tel;
 		this.e_mail = e_mail;
 	}
 	public Klijent(int sifra, String naziv, float cijena) {
-		super(sifra, naziv, cijena);
+	
 	}
 	public Klijent() {
 		// TODO Auto-generated constructor stub
