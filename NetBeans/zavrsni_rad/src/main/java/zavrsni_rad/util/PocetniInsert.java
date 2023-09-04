@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
+import zavrsni_rad.model.Klijent;
 
 /**
  *
@@ -48,26 +49,25 @@ public class PocetniInsert {
         session.getTransaction().commit();
     }
     
-    private void kreirajSmjerove() {
-        Smjer s;
-        for (int i = 0; i < BROJ_SMJEROVA; i++) {
-            s = new Smjer();
-            s.setNaziv(faker.beer().name());
-            s.setCijena(new BigDecimal(faker.number().numberBetween(910, 1560)));
-            s.setUpisnina(new BigDecimal(faker.number().numberBetween(50, 120)));
-            s.setTrajanje(faker.number().numberBetween(90, 350));
-            s.setVerificiran(faker.bool().bool());
-            session.persist(s);
-            smjerovi.add(s);
+    private void kreirajKlijente() {
+        Klijent k;
+        for (int i = 0; i < BROJ_KLIJENATA; i++) {
+            k = new Klijent();
+            k.setIme(faker.name.firstName());
+            k.setPrezime(faker.name().lastName());
+            k.setKontakt_tel(faker.internet().emailAddress());
+            k.setKontakt_tel(faker.phoneNumber());
+            session.persist(k);
+            klijenti.add(k);
         }
     }
     
-    private void kreirajPolaznike() {
+    private void kreirajTermine() {
         
-        Polaznik p;
-        for (int i = 0; i < BROJ_POLAZNIKA; i++) {
-            p = new Polaznik();
-            p.setIme(faker.name().firstName());
+        Termini t;
+        for (int i = 0; i < BROJ_TERMINA; i++) {
+            t = new Termin();
+            t.set
             p.setPrezime(faker.name().lastName());
             p.setOib(Alati.getOib());
             p.setBrojUgovora(faker.business().creditCardNumber());
