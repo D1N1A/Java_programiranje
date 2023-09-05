@@ -9,8 +9,13 @@ import com.github.javafaker.Faker;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import org.hibernate.Session;
+import zavrsni_rad.model.Biljeska;
 import zavrsni_rad.model.Klijent;
+import zavrsni_rad.model.Stanje;
+import zavrsni_rad.model.Termin;
+import zavrsni_rad.model.Tretman;
 
 /**
  *
@@ -28,7 +33,6 @@ public class PocetniInsert {
     private Session session;
     private List<Biljeska> biljeske;
     private List<Klijent> klijenti;
-    private List<Stanje> stanja;
     private List<Termin> termini;
     private List<Tretman> tretmani;
     
@@ -64,61 +68,63 @@ public class PocetniInsert {
     
     private void kreirajTermine() {
         
-        Termini t;
+        Termin t;
+         List<Termini> t;
         for (int i = 0; i < BROJ_TERMINA; i++) {
             t = new Termin();
-            t.set
-            p.setPrezime(faker.name().lastName());
-            p.setOib(Alati.getOib());
-            p.setBrojUgovora(faker.business().creditCardNumber());
-            p.setEmail(faker.internet().emailAddress());
-            
-            session.persist(p);
-            polaznici.add(p);
+            t.setIme(faker.name().title();
+            t.setCijena(faker.number().numberBetween(50, 200));
+            t.setDatum(faker.date().future(i, TimeUnit.DAYS, referenceDate));
+            t.setKontakt_tel(faker.phoneNumber();
+            t.setMaxTermina(faker.number().numberBetween(5, 30));
+            for (int j = 0; j < faker.number().numberBetween(5, t.getMaxtermina; j++) {
+                p.add(polaznici.get(faker.number().numberBetween(0, BROJ_TERMINA - 1)));
+            }
+            session.persist(t);
+            termini.add(t);
             
         }
         
     }
     
-    private void kreirajPredavace() {
-        Predavac p;
-        for (int i = 0; i < BROJ_PREDAVACA; i++) {
-            p = new Predavac();
-            p.setIme(faker.name().firstName());
-            p.setPrezime(faker.name().lastName());
-            p.setOib(Alati.getOib());
-            p.setIban(faker.business().creditCardNumber());
-            p.setEmail(faker.internet().emailAddress());
-            
-            session.persist(p);
-            predavaci.add(p);
+    private void kreirajTretmane() {
+        Tretman t;
+       
+        for (int i = 0; i < BROJ_TRETMANA; i++) {
+            t = new Tretman();
+            t.setNaziv(faker.name().fullName());
+            t.setCijena(faker.number().numberBetween(50, 250));
+           
+            session.persist(t);
+            tretmani.add(t);
             
         }
     }
     
-    private void kreirajGrupe() {
+    private void kreirajBiljeske() {
         
-        Grupa g;
-        List<Polaznik> p;
-        for (int i = 0; i < BROJ_GRUPA; i++) {
-            g = new Grupa();
-            g.setNaziv(faker.chuckNorris().fact());
-            g.setDatumPocetka(faker.date().birthday(1, 10));
-            g.setPredavac(predavaci.get(faker.number().numberBetween(0, BROJ_PREDAVACA - 1)));
-            g.setSmjer(smjerovi.get(faker.number().numberBetween(0, BROJ_SMJEROVA - 1)));
-            g.setMaxpolaznika(faker.number().numberBetween(5, 30));
+        Biljeska b;
+        List<Biljeske> b;
+        for (int i = 0; i < BROJ_BILJESKI; i++) {
+            b = new Biljeska();
+            b.setMaxbiljeski(faker.number().numberBetween(5, 30));
             p = new ArrayList<>();
             // DZ: Osigurati da jedan polaznik može biti samo jednom na jednoj grupi
-            for (int j = 0; j < faker.number().numberBetween(5, g.getMaxpolaznika()); j++) {
-                p.add(polaznici.get(faker.number().numberBetween(0, BROJ_POLAZNIKA - 1)));
+            for (int j = 0; j < faker.number().numberBetween(5, g.getMaxbiljeski()); j++) {
+                p.add(polaznici.get(faker.number().numberBetween(0, BROJ_BILJESKI - 1)));
             }
-            g.setPolaznici(p);
+            g.setBiljeske(b);
             
-            session.persist(g);
+            session.persist(b);
             
         }
         
    
+        
+    }
+    
+    private void kreiranjeStanja() {
+        Stanje s;
         
     }
     
