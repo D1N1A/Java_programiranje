@@ -35,6 +35,8 @@ public class PocetniInsert {
     private List<Klijent> klijenti;
     private List<Termin> termini;
     private List<Tretman> tretmani;
+    private Object g;
+    private Object polaznici;
     
     public PocetniInsert() {
         faker = new Faker();
@@ -78,7 +80,7 @@ public class PocetniInsert {
             t.setKontakt_tel(faker.phoneNumber();
             t.setMaxTermina(faker.number().numberBetween(5, 30));
             for (int j = 0; j < faker.number().numberBetween(5, t.getMaxtermina; j++) {
-                p.add(polaznici.get(faker.number().numberBetween(0, BROJ_TERMINA - 1)));
+                t.add(termini.get(faker.number().numberBetween(0, BROJ_TERMINA - 1)));
             }
             session.persist(t);
             termini.add(t);
@@ -108,10 +110,10 @@ public class PocetniInsert {
         for (int i = 0; i < BROJ_BILJESKI; i++) {
             b = new Biljeska();
             b.setMaxbiljeski(faker.number().numberBetween(5, 30));
-            p = new ArrayList<>();
+            b = new ArrayList<>();
             // DZ: Osigurati da jedan polaznik može biti samo jednom na jednoj grupi
             for (int j = 0; j < faker.number().numberBetween(5, g.getMaxbiljeski()); j++) {
-                p.add(polaznici.get(faker.number().numberBetween(0, BROJ_BILJESKI - 1)));
+               b.add(faker.commerce().productName());
             }
             g.setBiljeske(b);
             

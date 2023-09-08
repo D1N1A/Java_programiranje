@@ -1,4 +1,4 @@
-package kozmeticki_salon_m;
+package zavrsni_rad.model;
 
 public class Klijent_stanje {
     
