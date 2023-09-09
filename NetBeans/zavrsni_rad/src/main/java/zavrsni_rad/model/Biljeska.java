@@ -1,21 +1,12 @@
 package zavrsni_rad.model;
 
-public class Biljeska extends Tretman {
+public class Biljeska extends Entitet {
 	private String opis;
 	private String preporuka;
-
-    public Biljeska(String opis, String preporuka, int sifra, String naziv, float cijena) {
-        super(sifra, naziv, cijena);
-        this.opis = opis;
-        this.preporuka = preporuka;
-    }
 
     public Biljeska(String opis, String preporuka) {
         this.opis = opis;
         this.preporuka = preporuka;
-    }
-
-    public Biljeska() {
     }
 
     public String getOpis() {
@@ -33,9 +24,6 @@ public class Biljeska extends Tretman {
     public void setPreporuka(String preporuka) {
         this.preporuka = preporuka;
     }
-
- 
-	
 
 	
 	

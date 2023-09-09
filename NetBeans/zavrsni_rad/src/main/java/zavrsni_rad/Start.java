@@ -4,7 +4,6 @@
 
 package zavrsni_rad;
 
-import zavrsni_rad.util.HibernateUtil;
 import zavrsni_rad.util.PocetniInsert;
 
 /**

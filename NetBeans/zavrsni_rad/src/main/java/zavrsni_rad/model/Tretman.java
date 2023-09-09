@@ -7,7 +7,7 @@ import jakarta.persistence.OneToMany;
 
 
 @Entity
-public class Tretman extends Klijent {
+public class Tretman extends Entitet {
         @OneToMany
 	private String naziv;
 	public static float cijena;
