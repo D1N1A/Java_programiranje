@@ -7,7 +7,6 @@ import jakarta.persistence.OneToMany;
 
 
 public class Stanje extends Entitet{
-        @OneToMany
 	private String naziv;
 	private String opis;
         
