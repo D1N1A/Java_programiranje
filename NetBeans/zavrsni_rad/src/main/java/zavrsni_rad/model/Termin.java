@@ -43,5 +43,10 @@ public class Termin extends Entitet{
         this.klijent = klijent;
     }
 
+    public void getMaxtermina() {
+  
+    }
 }
+
+
      

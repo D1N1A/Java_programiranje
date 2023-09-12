@@ -5,9 +5,11 @@
 package zavrsni_rad.util;
 
 import com.github.javafaker.Faker;
+import java.sql.Time;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import org.hibernate.Session;
 import zavrsni_rad.model.Biljeska;
 import zavrsni_rad.model.Klijent;
@@ -17,7 +19,7 @@ import zavrsni_rad.model.Tretman;
 
 /**
  *
- * @author Katedra
+ * @author Ana
  */
 public class PocetniInsert {
     
@@ -25,6 +27,7 @@ public class PocetniInsert {
     private static final int BROJ_KLIJENATA = 11256;
     private static final int BROJ_TERMINA = 25769;
     private static final int BROJ_TRETMANA = 50237;
+    private static final int BROJ_STANJA= 10345;
     
     private Faker faker;
     private Session session;
@@ -58,8 +61,8 @@ public class PocetniInsert {
             k = new Klijent();
             k.setIme(faker.color().name());
             k.setPrezime(faker.name().lastName());
-            k.setKontakt_tel(faker.number().digits(8));
-            k.setE_mail(faker.internet().emailAddress());
+            k.setKontaktTel(faker.number().digits(8));
+            k.seteMail(faker.internet().emailAddress());
             session.persist(k);
             klijenti.add(k);
         }
@@ -70,14 +73,10 @@ public class PocetniInsert {
         Termin t;
         for (int i = 0; i < BROJ_TERMINA; i++) {
             t = new Termin();
-            t.setIme(faker.name().title());
-            t.setCijena(faker.number().numberBetween(50, 200));
+            t.setKlijent(faker.name().title());
+            t.setTretman(faker.name().fullName());
             t.setDatum(faker.date().birthday());
-            t.setKontakt_tel(faker.number().digits(8));
-            t.setMaxtermina(faker.number().numberBetween(5, 30));
-            for (int j = 0; faker.number().numberBetween(5, t.getMaxtermina())<= j; j++) {
-                t.add(termini.get(faker.number().numberBetween(0, BROJ_TERMINA - 1)));
-            }
+            t.setVrijeme((Time) faker.date().future(i, TimeUnit.DAYS));
             session.persist(t);
             termini.add(t);
             
@@ -92,7 +91,6 @@ public class PocetniInsert {
             t = new Tretman();
             t.setNaziv(faker.name().fullName());
             t.setCijena(faker.number().numberBetween(50, 250));
-           
             session.persist(t);
             tretmani.add(t);
             
@@ -105,13 +103,10 @@ public class PocetniInsert {
   
         for (int i = 0; i < BROJ_BILJESKI; i++) {
             b = new Biljeska();
-            b.setMaxbiljeski(faker.number().numberBetween(5, 30));
-            for (int j = 0; j < faker.number().numberBetween(5, b.getMaxbiljeski()); j++) {
-               b.getOpis(faker.commerce().material());
-            }
-            b.setBiljeske(b);
-            
-            session.persist(b);
+            b.setOpazanje(faker.app().version());
+            b.setPreporuka(faker.business().toString());
+            b.setTermin(faker.date().toString());
+            b.setTretman(faker.name().fullName());
             
         }
         
@@ -121,7 +116,14 @@ public class PocetniInsert {
     
 
     private void kreirajStanja() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Stanje s;
+        for (int i = 0; i < BROJ_STANJA; i++) {
+            s = new Stanje ();
+            s.setNaziv(faker.name().nameWithMiddle());
+            s.getOpis(faker.artist().name());
+            
+        }
+        
     }
 
     private static class Stanja {

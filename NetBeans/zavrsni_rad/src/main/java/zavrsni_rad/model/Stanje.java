@@ -9,8 +9,7 @@ import jakarta.persistence.OneToMany;
 public class Stanje extends Entitet{
 	private String naziv;
 	private String opis;
-        
-
+        private String klijent;
 
     public String getNaziv() {
         return naziv;
@@ -28,8 +27,13 @@ public class Stanje extends Entitet{
         this.opis = opis;
     }
 
-  
+    public String getKlijent() {
+        return klijent;
+    }
 
-	
+    public void setKlijent(String klijent) {
+        this.klijent = klijent;
+    }
+
 
 }

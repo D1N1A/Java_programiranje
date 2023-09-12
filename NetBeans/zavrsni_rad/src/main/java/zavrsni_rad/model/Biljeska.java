@@ -9,6 +9,8 @@ public class Biljeska extends Entitet {
         private String termin;
           @ManyToOne
         private String tretman;
+          @ManyToOne
+          private String stanje;
 
     public String getOpazanje() {
         return opazanje;
@@ -40,6 +42,26 @@ public class Biljeska extends Entitet {
 
     public void setTretman(String tretman) {
         this.tretman = tretman;
+    }
+
+    public String getStanje() {
+        return stanje;
+    }
+
+    public void setStanje(String stanje) {
+        this.stanje = stanje;
+    }
+          
+          
+          
+
+
+  
+
+          
+
+    public void setMaxbiljeski(int numberBetween) {
+     
     }
 
    
