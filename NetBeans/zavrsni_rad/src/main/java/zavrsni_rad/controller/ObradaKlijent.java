@@ -53,7 +53,7 @@ public class ObradaKlijent extends Obrada<Klijent>{
         }
         
 
-    @Override
+
     public List<Klijent> read() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
@@ -79,7 +79,7 @@ public class ObradaKlijent extends Obrada<Klijent>{
     
 
    
-    @Override
+
     protected void kontrolaUnos() throws KozmetickiSalonException {
         kontrolaIme();
         kontrolaPrezime();
@@ -90,7 +90,7 @@ public class ObradaKlijent extends Obrada<Klijent>{
     @Override
     protected void kontrolaPromjena() throws KozmetickiSalonException {
     }
-    }
+    
 
     @Override
     protected void kontrolaBrisanje() throws KozmetickiSalonException {
