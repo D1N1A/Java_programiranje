@@ -18,6 +18,10 @@ public class KozmetickiSalonException extends Exception {
         this.poruka = poruka;
     }
 
+    public KozmetickiSalonException(String entitet_je_null) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public String getPoruka() {
         return poruka;
     }

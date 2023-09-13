@@ -42,11 +42,7 @@ public class Termin extends Entitet{
     public void setKlijent(String klijent) {
         this.klijent = klijent;
     }
+         
+         
 
-    public void getMaxtermina() {
-  
-    }
 }
-
-
-     

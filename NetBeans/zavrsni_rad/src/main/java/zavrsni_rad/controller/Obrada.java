@@ -4,11 +4,11 @@
  */
 package zavrsni_rad.controller;
 
-import edunova.model.Entitet;
-import edunova.util.EdunovaException;
-import edunova.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
+import zavrsni_rad.model.Entitet;
+import zavrsni_rad.util.HibernateUtil;
+import zavrsni_rad.util.KozmetickiSalonException;
 
 /**
  *
@@ -19,9 +19,9 @@ public abstract class Obrada<T extends Entitet>{
     protected T entitet;
     protected Session sesssion;
     public abstract List<T> read();
-    protected abstract void kontrolaUnos() throws EdunovaException;
-    protected abstract void kontrolaPromjena() throws EdunovaException;
-    protected abstract void kontrolaBrisanje() throws EdunovaException;
+    protected abstract void kontrolaUnos() throws KozmetickiSalonException;
+    protected abstract void kontrolaPromjena() throws KozmetickiSalonException;
+    protected abstract void kontrolaBrisanje() throws KozmetickiSalonException;
     
     public Obrada(){
         sesssion = HibernateUtil.getSession();
@@ -32,20 +32,20 @@ public abstract class Obrada<T extends Entitet>{
         this.entitet=entitet;
     }
     
-    public void create() throws EdunovaException{
+    public void create() throws KozmetickiSalonException{
         kontrolaNull();
-        entitet.setSifra(null);
+        entitet.setId(null);
         kontrolaUnos();
         persist();
     }
     
-    public void update() throws EdunovaException{
+    public void update() throws KozmetickiSalonException{
         kontrolaNull();
         kontrolaPromjena();
         persist();
     }
     
-    public void delete() throws EdunovaException{
+    public void delete() throws KozmetickiSalonException{
         kontrolaNull();
         kontrolaBrisanje();
         sesssion.beginTransaction();
@@ -59,9 +59,9 @@ public abstract class Obrada<T extends Entitet>{
         sesssion.getTransaction().commit();
     }
     
-    private void kontrolaNull() throws EdunovaException{
+    private void kontrolaNull() throws KozmetickiSalonException{
        if(entitet==null){
-            throw new EdunovaException("Entitet je null");
+            throw new KozmetickiSalonException("Entitet je null");
         } 
        
     }

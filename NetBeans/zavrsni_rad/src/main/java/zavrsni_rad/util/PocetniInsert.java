@@ -120,7 +120,14 @@ public class PocetniInsert {
         for (int i = 0; i < BROJ_STANJA; i++) {
             s = new Stanje ();
             s.setNaziv(faker.name().nameWithMiddle());
-            s.getOpis(faker.artist().name());
+            s.setOpis(faker.artist().name());
+            s.setKlijent(faker.name().fullName());
+            s.setBiljeska(faker.app().version());
+            b =new ArrayList<>();
+            for (int j = 0; j < faker.number().numberBetween(2,s.getMaxbiljeski()); j++) {
+                
+                
+            }
             
         }
         

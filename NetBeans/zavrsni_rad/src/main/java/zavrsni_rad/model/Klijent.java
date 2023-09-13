@@ -1,6 +1,9 @@
 package zavrsni_rad.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -10,6 +13,9 @@ public class Klijent extends Entitet{
 	private String prezime;
 	private String kontaktTel;
 	private String eMail;
+        
+        @OneToMany (mappedBy = "klijent")
+        private List <Termin> termini = new ArrayList <>();
 
     public String getIme() {
         return ime;
@@ -43,5 +49,19 @@ public class Klijent extends Entitet{
         this.eMail = eMail;
     }
 
+    public List<Termin> getTermini() {
+        return termini;
+    }
+
+    public void setTermini(List<Termin> termini) {
+        this.termini = termini;
+    }
+
+    public Object setTermini() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+   
+        
 
 }
