@@ -58,10 +58,9 @@ public class Klijent extends Entitet{
     }
 
     public Object setTermini() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    this.termin
     }
 
-   
         
 
 }

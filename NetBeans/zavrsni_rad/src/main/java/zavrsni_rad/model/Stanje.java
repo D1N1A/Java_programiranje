@@ -20,6 +20,17 @@ public class Stanje extends Entitet{
 
         @ManyToMany
         private List<Biljeska> biljeske;
+        
+        
+        public void getMaxbiljeski() {
+            return maxbiljeski;
+        }
+        
+        public void setMaxbiljeski (Integer maxpolaznika) {
+            this.maxbiljeski = maxbiljeski;            
+            
+        }
+        
 
     public String getNaziv() {
         return naziv;

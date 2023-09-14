@@ -4,6 +4,7 @@
 
 package zavrsni_rad;
 
+import zavrsni_rad.util.HibernateUtil;
 import zavrsni_rad.util.PocetniInsert;
 
 /**
@@ -14,8 +15,8 @@ public class Start {
 
     public static void main(String[] args) {
         
-       // HibernateUtil.getSession();
-       new PocetniInsert();
+       HibernateUtil.getSession();
+      // new PocetniInsert();
         
     }
 }

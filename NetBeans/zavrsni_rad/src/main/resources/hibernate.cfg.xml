@@ -18,10 +18,10 @@
     <property name="format_sql">true</property>
     <property name="hbm2ddl.auto">update</property>
     
-    <mapping class="edunova.model.Smjer" />
-    <mapping class="edunova.model.Polaznik" />
-    <mapping class="edunova.model.Predavac" />
-    <mapping class="edunova.model.Grupa" />
-    
+    <mapping class="zavrsni_rad.model.Biljeska" />
+    <mapping class="zavrsni_rad.model.Klijent" />
+    <mapping class="zavrsni_rad.model.Stanje" />
+    <mapping class="zavrsni_rad.model.Termin" />
+    <mapping class="zavrsni_rad.model.Tretman"/>
   </session-factory>
 </hibernate-configuration>
