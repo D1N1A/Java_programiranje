@@ -18,22 +18,15 @@ public class Stanje extends Entitet{
   
         
 
-        @ManyToMany
+        @ManyToMany 
         private List<Biljeska> biljeske;
-        
-        
-        public void getMaxbiljeski() {
-            return maxbiljeski;
-        }
-        
-        public void setMaxbiljeski (Integer maxpolaznika) {
-            this.maxbiljeski = maxbiljeski;            
-            
-        }
-        
 
     public String getNaziv() {
         return naziv;
+    }
+
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
     }
 
     public String getOpis() {
@@ -67,9 +60,12 @@ public class Stanje extends Entitet{
     public void setBiljeske(List<Biljeska> biljeske) {
         this.biljeske = biljeske;
     }
+        
 
 
-} 
 
+        
+        
+}
 
     

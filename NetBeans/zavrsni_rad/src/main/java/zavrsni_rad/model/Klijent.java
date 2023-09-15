@@ -56,11 +56,5 @@ public class Klijent extends Entitet{
     public void setTermini(List<Termin> termini) {
         this.termini = termini;
     }
-
-    public Object setTermini() {
-    this.termin
-    }
-
-        
-
+     
 }
