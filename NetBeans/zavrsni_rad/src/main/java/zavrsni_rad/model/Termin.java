@@ -10,6 +10,7 @@ import java.util.Date;
 public class Termin extends Entitet{
 	private Date datum;
 	private Time vrijeme;
+        @OneToMany
         private String tretman;
          @OneToMany
          private String klijent;

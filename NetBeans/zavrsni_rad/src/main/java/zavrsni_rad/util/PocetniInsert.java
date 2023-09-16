@@ -59,7 +59,7 @@ public class PocetniInsert {
         Klijent k;
         for (int i = 0; i < BROJ_KLIJENATA; i++) {
             k = new Klijent();
-            k.setIme(faker.color().name());
+            k.setIme(faker.name().firstName());
             k.setPrezime(faker.name().lastName());
             k.setKontaktTel(faker.number().digits(8));
             k.seteMail(faker.internet().emailAddress());
@@ -71,10 +71,14 @@ public class PocetniInsert {
     private void kreirajTermine() {
         
         Termin t;
+        List<Klijent> k;
+        List <Tretman> tr;
         for (int i = 0; i < BROJ_TERMINA; i++) {
-            t = new Termin();
-            t.setKlijent(faker.name().title());
-            t.setTretman(faker.name().fullName());
+            k=new ArrayList<>();
+            tr = new ArrayList <>();
+            t = new Termin(); 
+            t.setKlijent((String) k.getClass().arrayType().cast(k));
+            t.setTretman((String) tr.getClass().arrayType().cast(tr));
             t.setDatum(faker.date().birthday());
             t.setVrijeme((Time) faker.date().future(i, TimeUnit.DAYS));
             session.persist(t);
@@ -89,7 +93,7 @@ public class PocetniInsert {
        
         for (int i = 0; i < BROJ_TRETMANA; i++) {
             t = new Tretman();
-            t.setNaziv(faker.name().fullName());
+            t.setNaziv(faker.superhero().power());
             t.setCijena(faker.number().numberBetween(50, 250));
             session.persist(t);
             tretmani.add(t);
