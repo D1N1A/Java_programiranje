@@ -10,6 +10,7 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import org.checkerframework.checker.units.qual.t;
 import org.hibernate.Session;
 import zavrsni_rad.model.Biljeska;
 import zavrsni_rad.model.Klijent;
@@ -35,7 +36,7 @@ public class PocetniInsert {
     private List<Klijent> klijenti;
     private List<Termin> termini;
     private List<Tretman> tretmani;
-    private List<Stanja> stanja;
+    private List<Stanje> stanja;
     
     
     public PocetniInsert() {
@@ -104,13 +105,17 @@ public class PocetniInsert {
     private void kreirajBiljeske() {
         
         Biljeska b;
-  
+        List <Termin> t; 
+        List <Tretman> tr;
         for (int i = 0; i < BROJ_BILJESKI; i++) {
             b = new Biljeska();
+            t= new ArrayList<>();
+            t = (List<Termin>) new Termin ();
+            tr = (List<Tretman>) new Tretman ();
             b.setOpazanje(faker.app().version());
             b.setPreporuka(faker.business().toString());
-            b.setTermin(faker.date().toString());
-            b.setTretman(faker.name().fullName());
+            b.setTermin((String) t.getClass().arrayType().cast(t));
+            b.setTretman((String) t.getClass().arrayType().cast(tr));
             
         }
         
@@ -120,45 +125,25 @@ public class PocetniInsert {
     
 
     private void kreirajStanja() {
-        List<Biljeska> b;
         Stanje s;
+        List<Biljeska> b;
         for (int i = 0; i < BROJ_STANJA; i++) {
             s = new Stanje ();
+            s.setNaziv(faker.friends().character());
             s.setOpis(faker.artist().name());
-            s.setKlijent(faker.name().fullName());
-            s.setBiljeska(faker.app().version());
             b =new ArrayList<>();
-            for (int j = 0; j < faker.number().numberBetween(2,s.i()); j++) {
-                
-                
+            for (int j = 0; j < faker.number().numberBetween(0, s.getMaxbiljeski()); j++) {
+                b.add(biljeske.get(faker.number().numberBetween(0, BROJ_BILJESKI - 1)));
             }
+            s.setBiljeske(b);
             
+           session.persist(s);
+                
+           
         }
         
     }
 
-    private static class Stanja {
-
-        public Stanja() {
-        }
-    }
-
-    private static class Termini {
-
-        public Termini() {
-        }
-    }
-
-    private static class Biljeske {
-
-        public Biljeske() {
-        }
-    }
-
-    private static class biljeske {
-
-        public biljeske() {
-        }
-    }
+    
     
 }

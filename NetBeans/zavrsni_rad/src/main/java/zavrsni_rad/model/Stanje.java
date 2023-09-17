@@ -2,18 +2,21 @@ package zavrsni_rad.model;
 
 
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import java.util.List;
 
 
-
+@Entity
 public class Stanje extends Entitet{
 	private String naziv;
 	private String opis;
         private String klijent;
         @ManyToOne
         private String biljeska;
+        
+        private Integer maxbiljeski;
         
   
         
@@ -53,6 +56,14 @@ public class Stanje extends Entitet{
         this.biljeska = biljeska;
     }
 
+    public Integer getMaxbiljeski() {
+        return maxbiljeski;
+    }
+
+    public void setMaxbiljeski(Integer maxbiljeski) {
+        this.maxbiljeski = maxbiljeski;
+    }
+
     public List<Biljeska> getBiljeske() {
         return biljeske;
     }
@@ -60,10 +71,11 @@ public class Stanje extends Entitet{
     public void setBiljeske(List<Biljeska> biljeske) {
         this.biljeske = biljeske;
     }
+
+
         
-
-
-
+        
+        
         
         
 }

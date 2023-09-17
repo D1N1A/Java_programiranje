@@ -9,12 +9,8 @@ import org.hibernate.cfg.Configuration;
 
 /**
  *
- * @author Katedra
+ * @author Ana
  */
-// https://www.geeksforgeeks.org/singleton-class-java/
-
-// ostalo čitati na https://sourcemaking.com/design_patterns
-//Singleton
 public class HibernateUtil {
     
     private static Session session = null;
