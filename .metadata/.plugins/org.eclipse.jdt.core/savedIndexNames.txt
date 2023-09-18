@@ -2,4 +2,3 @@ INDEX VERSION 1.132+C:\Users\Adri\Desktop\Git\Java_programiranje\.metadata\.plug
 3352361922.index
 35846771.index
 1865797976.index
-1696264553.index

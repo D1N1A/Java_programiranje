@@ -34,7 +34,7 @@ public abstract class Obrada<T extends Entitet>{
     
     public void create() throws KozmetickiSalonException{
         kontrolaNull();
-        entitet.setId(null);
+        entitet.setSifra(null);
         kontrolaUnos();
         persist();
     }

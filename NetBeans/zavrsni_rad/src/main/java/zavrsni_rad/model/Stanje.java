@@ -19,10 +19,12 @@ public class Stanje extends Entitet{
         private Integer maxbiljeski;
         
   
-        
+ 
 
         @ManyToMany 
         private List<Biljeska> biljeske;
+        
+       
 
     public String getNaziv() {
         return naziv;

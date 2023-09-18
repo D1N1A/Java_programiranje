@@ -10,7 +10,6 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import org.checkerframework.checker.units.qual.t;
 import org.hibernate.Session;
 import zavrsni_rad.model.Biljeska;
 import zavrsni_rad.model.Klijent;

@@ -16,6 +16,24 @@ public class Klijent extends Entitet{
         
         @OneToMany (mappedBy = "klijent")
         private List <Termin> termini = new ArrayList <>();
+        
+        public List <Termin> getTermini() {
+            return termini;
+        }
+        
+        public Klijent () {
+        
+        }
+        
+        public Klijent (int sifra, String ime, String prezime, String kontaktTel, String eMail) {
+            super (sifra);
+            this.ime = ime;
+            this.prezime = prezime;
+            this.kontaktTel = kontaktTel;
+            this.eMail = eMail;
+
+     
+}
 
     public String getIme() {
         return ime;
@@ -48,13 +66,5 @@ public class Klijent extends Entitet{
     public void seteMail(String eMail) {
         this.eMail = eMail;
     }
-
-    public List<Termin> getTermini() {
-        return termini;
-    }
-
-    public void setTermini(List<Termin> termini) {
-        this.termini = termini;
-    }
-     
+        
 }

@@ -2,7 +2,6 @@ package zavrsni_rad.model;
 
 
 
-import org.hibernate.annotations.GenericGenerator;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,24 +12,22 @@ import jakarta.persistence.MappedSuperclass;
 public abstract class Entitet {
 
     @Id
-    @GeneratedValue(generator="increment")
-    @GenericGenerator(name="increment", strategy = "increment")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+ 
+    private Integer sifra;
 
-    public Entitet(Long id) {
-        this.id = id;
+    public Entitet(Integer sifra) {
+        this.sifra = sifra;
     }
 
     public Entitet() {
     }
 
-    public Long getId() {
-        return id;
+    public Integer getSifra() {
+        return sifra;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setSifra(Integer sifra) {
+        this.sifra = sifra;
     }
 }
-
-
