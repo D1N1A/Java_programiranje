@@ -10,12 +10,7 @@ import kozmeticki_salon_m.Tretman;
 public class ObradaTermin {
 	
 	private List <Termin> termini;
-	private Izbornik izbornik;
-	
-	public ObradaTermin (Izbornik izbornik) {
-		this ();
-		this.izbornik =  izbornik;	
-	}
+
 
 	
 	public ObradaTermin() {
@@ -83,11 +78,11 @@ public class ObradaTermin {
 	}
 	
 	private void dodavanjeTermina() {
-		Termin t = new Termin ();
+		Termin t = new Termin();
 		t.setDatum(Pomocno.unosDatum("Unesi datum termina"));
-		t.setVrijeme(Pomocno.unosRasponBroja("Unesi u koliko sati je termin:", "Obavezan unos vremena", 7.00, 21.00));
-		t.setNaziv(Pomocno.unosString("Unesi naziv tretmana", "Obavezan unos naziva tretmana"));
-		
+		t.setVrijeme(Pomocno.unosVrijeme("Unesi u koliko sati je termin", "Obavezan unos vremena", 7.00, 21.00));
+		t.setKlijenti(t.getKlijenti());
+		t.setTretmani(t.getTretmani());
 	
 		
 		
@@ -98,6 +93,7 @@ public class ObradaTermin {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 
 	}

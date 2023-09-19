@@ -2,11 +2,20 @@ package kozmeticki_salon_m;
 
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
-public class Termin extends Tretman{
+public class Termin extends Entitet{
 	private Date datum;
 	private Time vrijeme;
-	public int getDatum;
+	private List <Klijent> klijenti;
+	private List <Tretman> tretmani;
+
+	
+	public Termin ()  {
+	}
+	
+	
+	
 	public Date getDatum() {
 		return datum;
 	}
@@ -19,21 +28,40 @@ public class Termin extends Tretman{
 	public void setVrijeme(Time vrijeme) {
 		this.vrijeme = vrijeme;
 	}
-	public Termin(int sifra, String naziv, float cijena, Date datum, Time vrijeme) {
-		super(sifra, naziv, cijena);
+	public List<Klijent> getKlijenti() {
+		return klijenti;
+	}
+	public void setKlijenti(List<Klijent> klijenti) {
+		this.klijenti = klijenti;
+	}
+	public List<Tretman> getTretmani() {
+		return tretmani;
+	}
+	public void setTretmani(List<Tretman> string) {
+		this.tretmani = string;
+	}
+	public Termin(int sifra, Date datum, Time vrijeme, List<Klijent> klijenti, List<Tretman> tretmani) {
+		super(sifra);
 		this.datum = datum;
 		this.vrijeme = vrijeme;
+		this.klijenti = klijenti;
+		this.tretmani = tretmani;
 	}
-	public Termin(int sifra, String naziv, float cijena) {
-		super(sifra, naziv, cijena);
+	public Termin(int sifra) {
+		super(sifra);
 	}
-	public Termin() {
-		// TODO Auto-generated constructor stub
-	}
-	public void setVrijeme(int unosRasponBroja) {
-		// TODO Auto-generated method stub
-		
-	}
+
+
+
+
+
+	
+
+	
+	
+	
+	
+	
 
 
 	

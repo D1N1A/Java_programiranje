@@ -3,18 +3,20 @@ package kozmeticki_salon;
 import java.util.Scanner;
 
 public class Izbornik {
-
+		
+		private ObradaBiljeska obradaBiljeska;
 		private ObradaKlijent obradaKlijent;
 		private ObradaStanje obradaStanje;
 		private ObradaTermin obradaTermin;
 		private ObradaTretman obradaTretman;
 		
 		public Izbornik () {
-			new ObradaBiljeska ();
+			obradaBiljeska = new ObradaBiljeska ();
 			obradaKlijent = new ObradaKlijent ();
 			obradaStanje = new ObradaStanje ();
 			obradaTermin = new ObradaTermin ();
 			obradaTretman = new ObradaTretman ();
+			Pomocno.ulaz = new Scanner (System.in);
 			pozdravnaPoruka();
 			prikaziIzbornik();
 			Pomocno.ulaz.close();
@@ -37,7 +39,7 @@ public class Izbornik {
 			ucitajStavkuIzbornika();
 		}
 			
-			private void ucitajStavkuIzbornika() {
+			private void ucitajStavkuIzbornika()  {
 				
 				switch(Pomocno.unosRasponBroja("Odaberi stavku izbornika: ",
 						"Obavezno 1-6",1,6)) {
@@ -58,7 +60,8 @@ public class Izbornik {
 					prikaziIzbornik();
 					break;
 				case 5:
-					System.out.println("Bilješka");
+					obradaBiljeska.prikaziIzbornik();
+					prikaziIzbornik();
 					break;
 				case 6:
 					System.out.println("Doviđenja");
@@ -68,7 +71,30 @@ public class Izbornik {
 				}
 				
 		}
+			public ObradaBiljeska getObradaBiljeska() {
+				return obradaBiljeska;
+			}
+	
 			
+			public ObradaKlijent getObradaKlijent() {
+				return obradaKlijent;
+			}
+			public void setObradaKlijent(ObradaKlijent obradaKlijent) {
+	
+			}
+			public ObradaStanje getObradaStanje() {
+				return obradaStanje;
+			}
+	
+			
+			public ObradaTermin getObradaTermin() {
+				return obradaTermin;
+			}
+			public ObradaTretman getObradaTretman() {
+				return obradaTretman;
+			}
+	
+	
 
 	}
 

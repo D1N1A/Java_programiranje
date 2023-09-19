@@ -88,8 +88,8 @@ private void dodavanjeKlijenta() {
 	Klijent k = new Klijent ();
 	k.setIme(Pomocno.unosString("Unesi ime klijenta:", "Ime obavezno"));
 	k.setPrezime(Pomocno.unosString("Unesi prezime klijenta:", "Prezime obavezno"));
-	k.setKontakt_tel(Pomocno.unosString("Unesi kontakt telefon klijenta:", "Unos broja obavezan"));
-	k.setE_mail(Pomocno.unosString("Unesi e-mail klijenta:", "Unos e-maila obavezan"));
+	k.setKontaktTel(Pomocno.unosString("Unesi kontakt telefon klijenta:", "Unos broja obavezan"));
+	k.seteMail(Pomocno.unosString("Unesi e-mail klijenta:", "Unos e-maila obavezan"));
 	klijenti.add(k);
 	
 }
@@ -100,8 +100,8 @@ private void promjenaKlijenta() {
 	Klijent k = klijenti.get(index-1);
 	k.setIme(Pomocno.unosString("Unesi ime klijenta(" + k.getIme() + "):", "Ime obavezno"));
 	k.setPrezime(Pomocno.unosString("Unesi prezime klijenta(" + k.getPrezime() + "):", "Prezime obavezno"));
-	k.setKontakt_tel(Pomocno.unosString("Unesi kontakt telefon klijenta(" + k.getKontakt_tel() +"):", "Unos broja obavezan"));
-	k.setE_mail(Pomocno.unosString("Unesi e-mail klijenta(" + k.getE_mail() +"):", "Unos e-maila obavezan"));
+	k.setKontaktTel(Pomocno.unosString("Unesi kontakt telefon klijenta(" + k.getKontaktTel() +"):", "Unos broja obavezan"));
+	k.seteMail(Pomocno.unosString("Unesi e-mail klijenta(" + k.geteMail() +"):", "Unos e-maila obavezan"));
 
 }
 	

@@ -1,6 +1,7 @@
 package kozmeticki_salon;
 
 import java.util.Scanner;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -9,6 +10,7 @@ public class Pomocno {
 	public static Scanner ulaz;
 	public static boolean dev;
 	private static final String FORMAT_DATUMA="dd. MM. yyyy.";
+	private static final String FORMAT_VREMENA = null;
 	private static SimpleDateFormat df = new SimpleDateFormat(FORMAT_DATUMA);
 
 	public static int unosRasponBroja(String poruka, String greska, double d, double f) {
@@ -71,8 +73,20 @@ public class Pomocno {
 	
 
 	}
+	
 
+	public static Date unosVrijeme(String poruka, String string, double d, double f) {
+		while (true) {
+			try {
+				System.out.print(poruka);
+				return df.parse(ulaz.nextLine());
+			} catch (Exception e) {
+				System.out.println("Obavezan unos vremena u formatu " + FORMAT_VREMENA + ", npr. " + df.format(new Time(0)) + " za danas.");
+			}
+		}
+	
 
+	}
 	}
 
 
