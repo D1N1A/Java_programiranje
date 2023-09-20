@@ -7,7 +7,6 @@ package zavrsni_rad.util;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URI;
-import java.net.URL;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import us.codecraft.xsoup.Xsoup;
@@ -17,6 +16,13 @@ import us.codecraft.xsoup.Xsoup;
  * @author Katedra
  */
 public class Alati {
+    
+    public static final String NAZIV_APP = "Edunova APP";
+    public static Operater OPERATER;
+    
+    public static String getOperater(){
+        return OPERATER.getIme() + " " + OPERATER.getPrezime() + " (" + OPERATER.getUloga() + ")";
+    }
     
     public static String getOib(){
          try {
@@ -70,6 +76,24 @@ public class Alati {
         int kontrolni = 11 - a;
         kontrolni = kontrolni % 10;
         return (kontrolni == (chars[10] - '0'));
+    }
+
+    private static class Operater {
+
+        public Operater() {
+        }
+
+        private String getIme() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        private String getPrezime() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        private String getUloga() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
     }
     
 }
