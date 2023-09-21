@@ -13,12 +13,13 @@ import us.codecraft.xsoup.Xsoup;
 
 /**
  *
- * @author Katedra
+ * @author Ana
  */
 public class Alati {
     
-    public static final String NAZIV_APP = "Edunova APP";
+
     public static Operater OPERATER;
+    public static final String KOZMETICKI_SALON = "Royal Swiss Beauty";
     
     public static String getOperater(){
         return OPERATER.getIme() + " " + OPERATER.getPrezime() + " (" + OPERATER.getUloga() + ")";
