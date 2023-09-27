@@ -17,7 +17,7 @@ import us.codecraft.xsoup.Xsoup;
  */
 public class Alati {
     
-
+  
     public static Operater OPERATER;
     public static final String KOZMETICKI_SALON = "Royal Swiss Beauty";
     
@@ -84,17 +84,7 @@ public class Alati {
         public Operater() {
         }
 
-        private String getIme() {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
 
-        private String getPrezime() {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-
-        private String getUloga() {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
     }
     
 }
