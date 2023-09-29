@@ -84,6 +84,18 @@ public class Alati {
         public Operater() {
         }
 
+        private void getIme() {
+            
+        }
+
+        private void getPrezime() {
+           
+        }
+
+        private void getUloga() {
+          
+        }
+
 
     }
     

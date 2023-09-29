@@ -73,6 +73,11 @@ public class Autorizacija extends javax.swing.JFrame {
         jLabel2.setText("Lozinka");
 
         btnAutoriziraj.setText("Autoriziraj");
+        btnAutoriziraj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAutorizirajActionPerformed(evt);
+            }
+        });
 
         btnLozinka.setText("oper");
 
@@ -112,6 +117,50 @@ public class Autorizacija extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAutorizirajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutorizirajActionPerformed
+        // TODO addreset();
+        
+        var email = txtEmail.getText().trim();
+        
+        if(email.isEmpty()){
+            lblEmailPoruka.setText("Email obavezno");
+            postaviGresku(txtEmail);
+            return;
+        }
+        
+        if(!EmailValidator.getInstance().isValid(email)){
+             lblEmailPoruka.setText("Upisani tekst nije email");
+             postaviGresku(txtEmail);
+             return;
+        }
+        
+        if(txtLozinka.getPassword().length==0){
+            postaviGresku(txtLozinka);
+            return;
+        }
+        
+        
+        Operater o = obrada.autoriziraj(email, new String(txtLozinka.getPassword()));
+        
+        if(o==null){
+            JOptionPane.showMessageDialog(getRootPane(), 
+                    "Neispravna kombinacija email i lozinka");
+            return;
+        }
+        
+        //ja sam sigran da si logiran i onda idemo dalje
+        Operater logiran = new Operater();
+        logiran.setIme(o.getIme());
+        logiran.setPrezime(o.getPrezime());
+        logiran.setUloga(o.getUloga());
+        
+        Alati.OPERATER=logiran;
+        
+        new Izbornik().setVisible(true);
+        dispose();
+         your handling code here:
+    }//GEN-LAST:event_btnAutorizirajActionPerformed
 
     /**
      * @param args the command line arguments
