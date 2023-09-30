@@ -18,11 +18,12 @@ import us.codecraft.xsoup.Xsoup;
 public class Alati {
     
   
-    public static Operater OPERATER;
+   
     public static final String KOZMETICKI_SALON = "Royal Swiss Beauty";
+    public static Operater OPERATER;
     
-    public static String getOperater(){
-        return OPERATER.getIme() + " " + OPERATER.getPrezime() + " (" + OPERATER.getUloga() + ")";
+    public static void getOperater(){
+          return OPERATER.getIme() + " " + OPERATER.getPrezime() + " (" + OPERATER.getUloga() + ")";
     }
     
     public static String getOib(){

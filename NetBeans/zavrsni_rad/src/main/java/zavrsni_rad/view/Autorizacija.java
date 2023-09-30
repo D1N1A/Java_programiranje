@@ -20,12 +20,14 @@ import org.apache.commons.validator.routines.EmailValidator;
  * @author Ana
  */
 public class Autorizacija extends javax.swing.JFrame {
+    
+    private ObradaOperater obrada;
 
     /**
      * Creates new form Autorizacija
      */
         
-        private ObradaOperater obrada;
+   
 
        public Autorizacija() {
            initComponents();
@@ -52,7 +54,8 @@ public class Autorizacija extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextPane();
         jLabel2 = new javax.swing.JLabel();
         btnAutoriziraj = new javax.swing.JButton();
-        btnLozinka = new javax.swing.JPasswordField();
+        txtLozinka = new javax.swing.JPasswordField();
+        LblEmailPoruka = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -68,6 +71,11 @@ public class Autorizacija extends javax.swing.JFrame {
         jLabel1.setText("Email");
 
         txtEmail.setText("oper@edunova.hr");
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtEmailKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(txtEmail);
 
         jLabel2.setText("Lozinka");
@@ -79,7 +87,12 @@ public class Autorizacija extends javax.swing.JFrame {
             }
         });
 
-        btnLozinka.setText("oper");
+        txtLozinka.setText("oper");
+        txtLozinka.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtLozinkaKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,23 +106,26 @@ public class Autorizacija extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnLozinka)
+                            .addComponent(txtLozinka)
                             .addComponent(btnAutoriziraj, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                            .addComponent(LblEmailPoruka, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(254, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(4, 4, 4)
+                .addComponent(LblEmailPoruka, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(btnLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(btnAutoriziraj, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
@@ -119,18 +135,18 @@ public class Autorizacija extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAutorizirajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutorizirajActionPerformed
-        // TODO addreset();
+        reset();
         
         var email = txtEmail.getText().trim();
         
         if(email.isEmpty()){
-            lblEmailPoruka.setText("Email obavezno");
+            LblEmailPoruka.setText("Email obavezno");
             postaviGresku(txtEmail);
             return;
         }
         
         if(!EmailValidator.getInstance().isValid(email)){
-             lblEmailPoruka.setText("Upisani tekst nije email");
+             LblEmailPoruka.setText("Upisani tekst nije email");
              postaviGresku(txtEmail);
              return;
         }
@@ -140,7 +156,7 @@ public class Autorizacija extends javax.swing.JFrame {
             return;
         }
         
-        
+      
         Operater o = obrada.autoriziraj(email, new String(txtLozinka.getPassword()));
         
         if(o==null){
@@ -151,17 +167,46 @@ public class Autorizacija extends javax.swing.JFrame {
         
         //ja sam sigran da si logiran i onda idemo dalje
         Operater logiran = new Operater();
-        logiran.setIme(o.getIme());
-        logiran.setPrezime(o.getPrezime());
         logiran.setUloga(o.getUloga());
+        logiran.setLozinka(o.getLozinka());
         
         Alati.OPERATER=logiran;
         
         new Izbornik().setVisible(true);
         dispose();
-         your handling code here:
+        
     }//GEN-LAST:event_btnAutorizirajActionPerformed
 
+    private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
+        if(txtEmail.getText().length()>0){
+            txtEmail.setBackground(Color.WHITE);
+        }
+        
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btnAutorizirajActionPerformed(null);
+        }
+    }//GEN-LAST:event_txtEmailKeyPressed
+
+    private void txtLozinkaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLozinkaKeyPressed
+      
+         if(txtLozinka.getPassword().length>0){
+            txtLozinka.setBackground(Color.WHITE);
+        }
+        
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btnAutorizirajActionPerformed(null);
+        }
+    }//GEN-LAST:event_txtLozinkaKeyPressed
+ private void postaviGresku(JComponent c){
+        c.setBackground(Color.RED);
+        c.requestFocus();
+    }
+    
+    private void reset(){
+        LblEmailPoruka.setText("");
+        txtEmail.setBackground(Color.WHITE);
+        txtLozinka.setBackground(Color.WHITE);
+    }
     /**
      * @param args the command line arguments
      */
@@ -169,8 +214,8 @@ public class Autorizacija extends javax.swing.JFrame {
  
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LblEmailPoruka;
     private javax.swing.JButton btnAutoriziraj;
-    private javax.swing.JPasswordField btnLozinka;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -179,5 +224,6 @@ public class Autorizacija extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextPane txtEmail;
+    private javax.swing.JPasswordField txtLozinka;
     // End of variables declaration//GEN-END:variables
 }
