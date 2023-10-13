@@ -10,6 +10,7 @@ import java.net.URI;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import us.codecraft.xsoup.Xsoup;
+import zavrsni_rad.model.Operater;
 
 /**
  *
@@ -22,8 +23,10 @@ public class Alati {
     public static final String KOZMETICKI_SALON = "Royal Swiss Beauty";
     public static Operater OPERATER;
     
-    public static void getOperater(){
-          return OPERATER.getIme() + " " + OPERATER.getPrezime() + " (" + OPERATER.getUloga() + ")";
+    public static String getOperater(){
+        
+        return OPERATER.getUloga();
+        
     }
     
     public static String getOib(){
@@ -79,25 +82,9 @@ public class Alati {
         kontrolni = kontrolni % 10;
         return (kontrolni == (chars[10] - '0'));
     }
-
-    private static class Operater {
-
-        public Operater() {
-        }
-
-        private void getIme() {
-            
-        }
-
-        private void getPrezime() {
-           
-        }
-
-        private void getUloga() {
-          
-        }
-
-
-    }
     
 }
+
+
+   
+    
