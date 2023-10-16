@@ -1,6 +1,7 @@
 package zavrsni_rad.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +15,10 @@ public class Klijent extends Entitet{
 	private String kontaktTel;
 	private String eMail;
         
-        @OneToMany (mappedBy = "klijent")
-        private List <Termin> termini = new ArrayList <>();
+        @ManyToMany
+        private List<Stanje> stanja;
         
-        public List <Termin> getTermini() {
-            return termini;
-        }
+      
         
         public Klijent () {
         

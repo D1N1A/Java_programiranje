@@ -1,17 +1,17 @@
 package zavrsni_rad.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 
+@Entity
 public class Biljeska extends Entitet {
 	private String opazanje;
 	private String preporuka;
-         @ManyToOne
-        private String termin;
-          @ManyToOne
-        private String tretman;
-          
-          
- 
+        
+        @ManyToOne
+        private Termin termin;
+        @ManyToOne
+        private Tretman tretman;
 
     public String getOpazanje() {
         return opazanje;
@@ -29,23 +29,23 @@ public class Biljeska extends Entitet {
         this.preporuka = preporuka;
     }
 
-    public String getTermin() {
+    public Termin getTermin() {
         return termin;
     }
 
-    public void setTermin(String termin) {
+    public void setTermin(Termin termin) {
         this.termin = termin;
     }
 
-    public String getTretman() {
+    public Tretman getTretman() {
         return tretman;
     }
 
-    public void setTretman(String tretman) {
+    public void setTretman(Tretman tretman) {
         this.tretman = tretman;
     }
-      
-
+          
+         
   
 	
 

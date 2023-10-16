@@ -41,9 +41,9 @@ public class ObradaKlijent extends Obrada<Klijent>{
 
     @Override
     protected void kontrolaBrisanje() throws KozmetickiSalonException {
-        if (!entitet.getTermini().isEmpty()) {
-            throw new KozmetickiSalonException("Ne može se obrisati klijent koji ima zakazan tretman");
-        }
+       // if (!entitet.getTermini().isEmpty()) {
+       //     throw new KozmetickiSalonException("Ne može se obrisati klijent koji ima zakazan tretman");
+       // }
     }
 
 }

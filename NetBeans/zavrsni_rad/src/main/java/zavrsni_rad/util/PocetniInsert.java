@@ -5,14 +5,18 @@
 package zavrsni_rad.util;
 
 import com.github.javafaker.Faker;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import java.sql.Time;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.hibernate.Session;
+import zavrsni_rad.controller.ObradaOperater;
 import zavrsni_rad.model.Biljeska;
 import zavrsni_rad.model.Klijent;
+import zavrsni_rad.model.Operater;
 import zavrsni_rad.model.Stanje;
 import zavrsni_rad.model.Termin;
 import zavrsni_rad.model.Tretman;
@@ -47,12 +51,35 @@ public class PocetniInsert {
         termini = new ArrayList<>();
         tretmani = new ArrayList<>();
         session.getTransaction().begin();
+        
         kreirajKlijente();
         kreirajBiljeske();
         kreirajStanja();
         kreirajTermine();
         kreirajTretmane();
         session.getTransaction().commit();
+        lozinka();
+    }
+    
+     private void lozinka(){
+         // factory pattern
+        Argon2 argon2 = Argon2Factory.create();
+        
+        String hash = argon2.hash(10, 65536, 1, "oper".toCharArray());
+        
+        ObradaOperater oo = new ObradaOperater();
+        Operater o = new Operater();
+        o.setUloga("vlasnik");
+        o.setLozinka(hash);
+       
+        
+        oo.setEntitet(o);
+        
+        try {
+            oo.create();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     private void kreirajKlijente() {
@@ -70,21 +97,7 @@ public class PocetniInsert {
     
     private void kreirajTermine() {
         
-        Termin t;
-        List<Klijent> k;
-        List <Tretman> tr;
-        for (int i = 0; i < BROJ_TERMINA; i++) {
-            k=new ArrayList<>();
-            tr = new ArrayList <>();
-            t = new Termin(); 
-            t.setKlijent((String) k.getClass().arrayType().cast(k));
-            t.setTretman((String) tr.getClass().arrayType().cast(tr));
-            t.setDatum(faker.date().birthday());
-            t.setVrijeme((Time) faker.date().future(i, TimeUnit.DAYS));
-            session.persist(t);
-            termini.add(t);
-            
-        }
+      
         
     }
     
@@ -102,21 +115,7 @@ public class PocetniInsert {
     }
     
     private void kreirajBiljeske() {
-        
-        Biljeska b;
-        List <Termin> t; 
-        List <Tretman> tr;
-        for (int i = 0; i < BROJ_BILJESKI; i++) {
-            b = new Biljeska();
-            t= new ArrayList<>();
-            t = (List<Termin>) new Termin ();
-            tr = (List<Tretman>) new Tretman ();
-            b.setOpazanje(faker.app().version());
-            b.setPreporuka(faker.business().toString());
-            b.setTermin((String) t.getClass().arrayType().cast(t));
-            b.setTretman((String) t.getClass().arrayType().cast(tr));
-            
-        }
+      
         
    
         
@@ -124,22 +123,7 @@ public class PocetniInsert {
     
 
     private void kreirajStanja() {
-        Stanje s;
-        List<Biljeska> b;
-        for (int i = 0; i < BROJ_STANJA; i++) {
-            s = new Stanje ();
-            s.setNaziv(faker.friends().character());
-            s.setOpis(faker.artist().name());
-            b =new ArrayList<>();
-            for (int j = 0; j < faker.number().numberBetween(0, s.getMaxbiljeski()); j++) {
-                b.add(biljeske.get(faker.number().numberBetween(0, BROJ_BILJESKI - 1)));
-            }
-            s.setBiljeske(b);
-            
-           session.persist(s);
-                
-           
-        }
+     
         
     }
 

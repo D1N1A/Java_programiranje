@@ -1,7 +1,7 @@
 package zavrsni_rad.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
 import java.sql.Time;
 import java.util.Date;
 
@@ -10,10 +10,9 @@ import java.util.Date;
 public class Termin extends Entitet{
 	private Date datum;
 	private Time vrijeme;
-        @OneToMany
-        private String tretman;
-         @OneToMany
-         private String klijent;
+
+         @ManyToOne
+         private Klijent klijent;
 
     public Date getDatum() {
         return datum;
@@ -31,21 +30,16 @@ public class Termin extends Entitet{
         this.vrijeme = vrijeme;
     }
 
-    public String getTretman() {
-        return tretman;
-    }
 
-    public void setTretman(String tretman) {
-        this.tretman = tretman;
-    }
 
-    public String getKlijent() {
+    public Klijent getKlijent() {
         return klijent;
     }
 
-    public void setKlijent(String klijent) {
+    public void setKlijent(Klijent klijent) {
         this.klijent = klijent;
     }
+
          
          
 

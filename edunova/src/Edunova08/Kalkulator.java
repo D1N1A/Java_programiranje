@@ -1,4 +1,4 @@
-package Edunova06;
+package Edunova08;
 
 import java.util.Scanner;
 
@@ -52,8 +52,4 @@ static class Postotak
 		}
 	}
 		
-
-
-
-
 

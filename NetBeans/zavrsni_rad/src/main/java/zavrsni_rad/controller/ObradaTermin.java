@@ -21,9 +21,9 @@ public class ObradaTermin extends Obrada<Termin>{
 
     @Override
     protected void kontrolaUnos() throws KozmetickiSalonException {
-        if(!entitet.getKlijent().isEmpty()) {
-        throw new KozmetickiSalonException("Nije moguće unijeti termin bez klijenta");
-    }
+     //   if(!entitet.getKlijent().isEmpty()) {
+      //  throw new KozmetickiSalonException("Nije moguće unijeti termin bez klijenta");
+   // }
         if(entitet.getVrijeme()==null) {
             throw new KozmetickiSalonException("Nije moguće unijeti termin bez vremenske oznake");
         }

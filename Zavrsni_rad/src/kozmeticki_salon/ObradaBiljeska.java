@@ -22,7 +22,7 @@ public class ObradaBiljeska{
 		biljeske.add(new Biljeska(1, "dermatitis", "LaRochePosay", 1, 1));
 		biljeske.add(new Biljeska(1, "akne", "Dalton", 2, 2));
 	} 
-	private void prikaziIzbornik() {
+	public  prikaziIzbornik() {
 		System.out.println("Biljeska izbornik");
 		System.out.println("1. Pregled postojećih bilješki");
 		System.out.println("2. Unos nove bilješke");

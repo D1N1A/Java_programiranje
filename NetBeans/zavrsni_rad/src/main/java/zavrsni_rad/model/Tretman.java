@@ -10,11 +10,10 @@ import java.util.List;
 
 @Entity
 public class Tretman extends Entitet {
-        @OneToMany
+       
 	private String naziv;
 	public static float cijena;
-        @OneToMany(mappedBy = "tretman")
-        private List <Klijent> klijenti = new ArrayList<>();
+      
 
     public String getNaziv() {
         return naziv;
@@ -32,14 +31,6 @@ public class Tretman extends Entitet {
         Tretman.cijena = cijena;
     }
 
-    public List<Klijent> getKlijent() {
-        return klijenti;
-    }
-
-    public void setKlijenti(List<Klijent> klijenti) {
-        this.klijenti = klijenti;
-    }
-        
         
         
 }

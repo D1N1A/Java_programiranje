@@ -18,10 +18,12 @@
     <property name="format_sql">true</property>
     <property name="hbm2ddl.auto">update</property>
     
-    <mapping class="zavrsni_rad.model.Biljeska" />
+   
     <mapping class="zavrsni_rad.model.Klijent" />
+     <mapping class="zavrsni_rad.model.Tretman"/>
     <mapping class="zavrsni_rad.model.Stanje" />
+     <mapping class="zavrsni_rad.model.Biljeska" />
     <mapping class="zavrsni_rad.model.Termin" />
-    <mapping class="zavrsni_rad.model.Tretman"/>
+   
   </session-factory>
 </hibernate-configuration>

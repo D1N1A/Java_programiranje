@@ -12,18 +12,9 @@ import java.util.List;
 public class Stanje extends Entitet{
 	private String naziv;
 	private String opis;
-        private String klijent;
-        @ManyToOne
-        private String biljeska;
-        
-        private Integer maxbiljeski;
-        
-  
- 
+        @ManyToMany
+        private List<Tretman> tretmani;
 
-        @ManyToMany 
-        private List<Biljeska> biljeske;
-        
        
 
     public String getNaziv() {
@@ -42,42 +33,6 @@ public class Stanje extends Entitet{
         this.opis = opis;
     }
 
-    public String getKlijent() {
-        return klijent;
-    }
-
-    public void setKlijent(String klijent) {
-        this.klijent = klijent;
-    }
-
-    public String getBiljeska() {
-        return biljeska;
-    }
-
-    public void setBiljeska(String biljeska) {
-        this.biljeska = biljeska;
-    }
-
-    public Integer getMaxbiljeski() {
-        return maxbiljeski;
-    }
-
-    public void setMaxbiljeski(Integer maxbiljeski) {
-        this.maxbiljeski = maxbiljeski;
-    }
-
-    public List<Biljeska> getBiljeske() {
-        return biljeske;
-    }
-
-    public void setBiljeske(List<Biljeska> biljeske) {
-        this.biljeske = biljeske;
-    }
-
-
-        
-        
-        
         
         
 }

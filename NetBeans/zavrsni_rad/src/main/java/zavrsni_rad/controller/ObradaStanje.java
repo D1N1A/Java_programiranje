@@ -21,9 +21,9 @@ public class ObradaStanje extends Obrada<Stanje>{
 
     @Override
     protected void kontrolaUnos() throws KozmetickiSalonException {
-        if (!entitet.getKlijent().isEmpty()) {
-            throw new KozmetickiSalonException("Nije moguće unijeti stanje nepostojećeg klijenta");
-        }
+      //  if (!entitet.getKlijent().isEmpty()) {
+       //     throw new KozmetickiSalonException("Nije moguće unijeti stanje nepostojećeg klijenta");
+      //  }
     }
 
     @Override
