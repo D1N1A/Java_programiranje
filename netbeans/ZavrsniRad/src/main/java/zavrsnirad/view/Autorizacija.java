@@ -51,7 +51,7 @@ public class Autorizacija extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtEmail = new javax.swing.JTextPane();
+        txtUloga = new javax.swing.JTextPane();
         jLabel2 = new javax.swing.JLabel();
         btnAutoriziraj = new javax.swing.JButton();
         txtLozinka = new javax.swing.JPasswordField();
@@ -68,15 +68,15 @@ public class Autorizacija extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Email");
+        jLabel1.setText("Uloga");
 
-        txtEmail.setText("oper@edunova.hr");
-        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtUloga.setText("oper@edunova.hr");
+        txtUloga.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtEmailKeyPressed(evt);
+                txtUlogaKeyPressed(evt);
             }
         });
-        jScrollPane1.setViewportView(txtEmail);
+        jScrollPane1.setViewportView(txtUloga);
 
         jLabel2.setText("Lozinka");
 
@@ -137,31 +137,24 @@ public class Autorizacija extends javax.swing.JFrame {
     private void btnAutorizirajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutorizirajActionPerformed
         reset();
         
-        var email = txtEmail.getText().trim();
+        var uloga = txtUloga.getText().trim();
         
-        if(email.isEmpty()){
-            LblEmailPoruka.setText("Email obavezno");
-            postaviGresku(txtEmail);
+        if(uloga.isEmpty()){
+            LblEmailPoruka.setText("Uloga obavezna");
+            postaviGresku(txtUloga);
             return;
         }
         
-        if(!EmailValidator.getInstance().isValid(email)){
-             LblEmailPoruka.setText("Upisani tekst nije email");
-             postaviGresku(txtEmail);
-             return;
-        }
-        
-        if(txtLozinka.getPassword().length==0){
-            postaviGresku(txtLozinka);
-            return;
-        }
+     
         
       
-        Operater o = obrada.autoriziraj(email, new String(txtLozinka.getPassword()));
+        
+      
+        Operater o = obrada.autoriziraj(uloga, new String(txtLozinka.getPassword()));
         
         if(o==null){
             JOptionPane.showMessageDialog(getRootPane(), 
-                    "Neispravna kombinacija email i lozinka");
+                    "Neispravna kombinacija uloge i lozinke");
             return;
         }
         
@@ -177,15 +170,15 @@ public class Autorizacija extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnAutorizirajActionPerformed
 
-    private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
-        if(txtEmail.getText().length()>0){
-            txtEmail.setBackground(Color.WHITE);
+    private void txtUlogaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUlogaKeyPressed
+        if(txtUloga.getText().length()>0){
+            txtUloga.setBackground(Color.WHITE);
         }
         
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
             btnAutorizirajActionPerformed(null);
         }
-    }//GEN-LAST:event_txtEmailKeyPressed
+    }//GEN-LAST:event_txtUlogaKeyPressed
 
     private void txtLozinkaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLozinkaKeyPressed
       
@@ -204,7 +197,7 @@ public class Autorizacija extends javax.swing.JFrame {
     
     private void reset(){
         LblEmailPoruka.setText("");
-        txtEmail.setBackground(Color.WHITE);
+        txtUloga.setBackground(Color.WHITE);
         txtLozinka.setBackground(Color.WHITE);
     }
     /**
@@ -223,7 +216,7 @@ public class Autorizacija extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextPane txtEmail;
     private javax.swing.JPasswordField txtLozinka;
+    private javax.swing.JTextPane txtUloga;
     // End of variables declaration//GEN-END:variables
 }

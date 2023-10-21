@@ -23,15 +23,15 @@ public class ObradaOperater extends Obrada<Operater>{
     }
       
     
-    public Operater autoriziraj(String email, String lozinka){
+    public Operater autoriziraj(String uloga, String lozinka){
         Operater o;
         
         try {           
         
        
             o = sesssion.createQuery(
-                    "from Operater o where o.email=:email", Operater.class)
-                    .setParameter("email", email).getSingleResult();
+                    "from Operater o where o.uloga=:uloga", Operater.class)
+                    .setParameter("uloga", uloga).getSingleResult();
 
             
               Argon2 argon2 = Argon2Factory.create();

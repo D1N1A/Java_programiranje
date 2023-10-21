@@ -24,6 +24,7 @@
     <mapping class="zavrsnirad.model.Stanje" />
      <mapping class="zavrsnirad.model.Biljeska" />
     <mapping class="zavrsnirad.model.Termin" />
+    <mapping class="zavrsnirad.model.Operater" />
    
   </session-factory>
 </hibernate-configuration>

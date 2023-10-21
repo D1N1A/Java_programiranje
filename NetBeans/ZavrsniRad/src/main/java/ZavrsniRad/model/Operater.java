@@ -31,6 +31,10 @@ public class Operater extends Entitet {
     public void setUloga(String uloga) {
         this.uloga = uloga;
     }
+
+    public boolean getIme() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
 }

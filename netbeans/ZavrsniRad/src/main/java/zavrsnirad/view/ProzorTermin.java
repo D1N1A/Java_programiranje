@@ -4,19 +4,84 @@
  */
 package zavrsnirad.view;
 
+import com.github.lgooddatepicker.components.DatePickerSettings;
+import com.github.lgooddatepicker.components.TimePickerSettings;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Locale;
+import javax.swing.DefaultComboBoxModel;
+import zavrsnirad.controller.ObradaKlijent;
+import zavrsnirad.controller.ObradaTermin;
+import zavrsnirad.model.Klijent;
+import zavrsnirad.model.Termin;
+import zavrsnirad.util.Alati;
+
 /**
  *
  * @author Ana
  */
-public class ProzorTermin extends javax.swing.JFrame {
+public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonViewSucelje {
 
+    private ObradaKlijent obrada;
     /**
      * Creates new form ProzorTermin
      */
     public ProzorTermin() {
         initComponents();
+         setTitle(Alati.KOZMETICKI_SALON + " | TERMINI");
+         
+         obrada = new ObradaKlijent();
+         ucitajKlijente();
+         definirajDatumPocetka();
+         ucitaj();
+         
     }
+    
+    private void definirajDatumPocetka ()
+{
+         DatePickerSettings dps = new DatePickerSettings(Locale.of("hr","HR"));
+         dps.setFormatForDatesCommonEra("dd. MM. YYYY.");
+         dps.setTranslationClear("Očisti");
+         dps.setTranslationToday("Danas");
+         dtpDatumPocetka.datePicker.setSettings(dps);
+         
+         TimePickerSettings tps = dtpDatumPocetka.timePicker.getSettings();
+    
+         tps.setFormatForDisplayTime("HH:mm");
+         tps.use24HourClockFormat();
+         
+         ArrayList<LocalTime> lista = new ArrayList<>();
+         for(int i =0;i<24;i++){
+             for(int j = 0;j<60;j=j+10){
+                 lista.add(LocalTime.of(i,j));
+             }
+         }
+              tps.generatePotentialMenuTimes(lista);
+         
+         
+         
+     }
+    
+    private void ucitajKlijente () {
+        DefaultComboBoxModel<Klijent> m = new DefaultComboBoxModel <> ();
+        Klijent k = new Klijent ();
+        k.setSifra(0);
+        k.setPrezime("Odaberite prezime");
+        m.addElement(k);
+        
+        m.addAll(new ObradaKlijent().read());
+        
+        cmbKlijenti.setModel(m);
+        cmbKlijenti.repaint();
+        
+        
+        
+    }
+    
+   
 
+         
+         
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,31 +91,23 @@ public class ProzorTermin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lstTermini = new javax.swing.JPanel();
         lblTermini = new javax.swing.JLabel();
+        dtpDatumPocetka = new com.github.lgooddatepicker.components.DateTimePicker();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        cmbKlijenti = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
+        lstKlijenti = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout lstTerminiLayout = new javax.swing.GroupLayout(lstTermini);
-        lstTermini.setLayout(lstTerminiLayout);
-        lstTerminiLayout.setHorizontalGroup(
-            lstTerminiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        lstTerminiLayout.setVerticalGroup(
-            lstTerminiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 260, Short.MAX_VALUE)
-        );
-
         lblTermini.setText("Zakazani termini:");
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jLabel1.setText("Datum i vrijeme:");
 
-        jScrollPane2.setViewportView(jTextPane2);
+        jLabel2.setText("Klijent:");
+
+        jScrollPane1.setViewportView(lstKlijenti);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,44 +115,67 @@ public class ProzorTermin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblTermini, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
-                    .addComponent(lstTermini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(154, Short.MAX_VALUE))
+                    .addComponent(lblTermini, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dtpDatumPocetka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbKlijenti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTermini, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(81, 81, 81)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lstTermini, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbKlijenti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dtpDatumPocetka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(122, 122, 122))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
     /**
      * @param args the command line arguments
      */
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<Klijent> cmbKlijenti;
+    private com.github.lgooddatepicker.components.DateTimePicker dtpDatumPocetka;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane jTextPane2;
     private javax.swing.JLabel lblTermini;
-    private javax.swing.JPanel lstTermini;
+    private javax.swing.JList<Klijent> lstKlijenti;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void ucitaj() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void popuniModel() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void popuniView() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

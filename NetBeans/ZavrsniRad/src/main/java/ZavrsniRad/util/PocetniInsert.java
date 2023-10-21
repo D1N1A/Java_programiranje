@@ -28,11 +28,11 @@ import zavrsnirad.model.Tretman;
  */
 public class PocetniInsert {
     
-    private static final int BROJ_BILJESKI = 12;
-    private static final int BROJ_KLIJENATA = 11256;
-    private static final int BROJ_TERMINA = 25769;
-    private static final int BROJ_TRETMANA = 50237;
-    private static final int BROJ_STANJA= 11256;
+    private static final int BROJ_BILJESKI = 502;
+    private static final int BROJ_KLIJENATA = 112;
+    private static final int BROJ_TERMINA = 502;
+    private static final int BROJ_TRETMANA = 502;
+    private static final int BROJ_STANJA= 112;
     
     private Faker faker;
     private Session session;
@@ -53,11 +53,17 @@ public class PocetniInsert {
         tretmani = new ArrayList<>();
         session.getTransaction().begin();
         
+        
         kreirajKlijente();
-        kreirajBiljeske();
-        kreirajStanja();
-        kreirajTermine();
-        kreirajTretmane();
+          kreirajTretmane();
+          kreirajStanja();
+          
+       kreirajTermine();
+       kreirajBiljeske();
+        
+    
+     
+        
         session.getTransaction().commit();
         lozinka();
     }
@@ -66,12 +72,12 @@ public class PocetniInsert {
          // factory pattern
         Argon2 argon2 = Argon2Factory.create();
         
-        String hash = argon2.hash(10, 65536, 1, "oper".toCharArray());
+        String hash = argon2.hash(10, 65536, 1, "Sanja".toCharArray());
         
         ObradaOperater oo = new ObradaOperater();
         Operater o = new Operater();
         o.setUloga("vlasnik");
-        o.setLozinka(hash);
+        o.setLozinka("Sanja");
        
         
         oo.setEntitet(o);
@@ -104,10 +110,10 @@ public class PocetniInsert {
             te = new Termin();
             te.setKlijent(klijenti.get(faker.number().numberBetween(0, BROJ_KLIJENATA-1)));
             te.setDatum(faker.date().birthday(0, 3));
-            te.setVrijeme((Time) faker.date().future(21, TimeUnit.HOURS,faker.date().future(59, TimeUnit.MINUTES)));
+            te.setVrijeme(new Time(System.currentTimeMillis()));
             
             session.persist(te);
-            
+            termini.add(te);
         }
       
         
