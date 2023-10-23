@@ -4,6 +4,7 @@ package zavrsnirad.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +13,7 @@ import java.util.List;
 public class Tretman extends Entitet {
        
 	private String naziv;
-	public static float cijena;
-      
+	public BigDecimal cijena;
 
     public String getNaziv() {
         return naziv;
@@ -23,14 +23,26 @@ public class Tretman extends Entitet {
         this.naziv = naziv;
     }
 
-    public static float getCijena() {
+    public BigDecimal getCijena() {
         return cijena;
     }
 
-    public static void setCijena(float cijena) {
-        Tretman.cijena = cijena;
+    public void setCijena(BigDecimal cijena) {
+        this.cijena = cijena;
     }
 
+    public Tretman(String naziv, BigDecimal cijena) {
+        this.naziv = naziv;
+        this.cijena = cijena;
+    }
+
+    public Tretman() {
+        
+        
+    }
+      
+
+    
         
         
 }

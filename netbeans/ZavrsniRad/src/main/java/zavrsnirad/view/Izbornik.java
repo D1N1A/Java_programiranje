@@ -4,6 +4,8 @@
  */
 package zavrsnirad.view;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import zavrsnirad.util.Alati;
 
 /**
@@ -18,8 +20,9 @@ public class Izbornik extends javax.swing.JFrame {
     public Izbornik() {
         initComponents();
         setTitle(Alati.KOZMETICKI_SALON + "| IZBORNIK");
+      lblOperater.setText(Alati.getOperater());
         
-        
+
     }
 
     /**
@@ -31,73 +34,102 @@ public class Izbornik extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
         cp = new com.github.lgooddatepicker.components.CalendarPanel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jToolBar1 = new javax.swing.JToolBar();
+        lblOperater = new javax.swing.JLabel();
+        btnTermini = new javax.swing.JButton();
+        btnKlijenti = new javax.swing.JButton();
+        btnTretmani = new javax.swing.JButton();
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
+
+        jRadioButtonMenuItem2.setSelected(true);
+        jRadioButtonMenuItem2.setText("jRadioButtonMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         cp.setOpaque(false);
 
-        jMenu1.setText("Termini");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+        jToolBar1.setRollover(true);
+        jToolBar1.add(lblOperater);
+
+        btnTermini.setText("Termini");
+        btnTermini.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
+                btnTerminiActionPerformed(evt);
             }
         });
-        jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Klijenti");
-        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+        btnKlijenti.setText("Klijenti");
+        btnKlijenti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu2ActionPerformed(evt);
+                btnKlijentiActionPerformed(evt);
             }
         });
-        jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Tretmani");
-        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+        btnTretmani.setText("Tretmani");
+        btnTretmani.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu3ActionPerformed(evt);
+                btnTretmaniActionPerformed(evt);
             }
         });
-        jMenuBar1.add(jMenu3);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
-                .addComponent(cp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnKlijenti)
+                            .addComponent(btnTermini)
+                            .addComponent(btnTretmani))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(cp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addComponent(cp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGap(35, 35, 35)
+                .addComponent(btnTermini)
+                .addGap(18, 18, 18)
+                .addComponent(btnKlijenti)
+                .addGap(18, 18, 18)
+                .addComponent(btnTretmani)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cp, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        new ProzorTermin().setVisible(true);
-    }//GEN-LAST:event_jMenu1ActionPerformed
+    private void btnTerminiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminiActionPerformed
+  new ProzorTermin().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTerminiActionPerformed
 
-    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-       new ProzorKlijent().setVisible(true);
-    }//GEN-LAST:event_jMenu2ActionPerformed
+    private void btnKlijentiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlijentiActionPerformed
+  new ProzorKlijent().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKlijentiActionPerformed
 
-    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-       new ProzorTretman().setVisible(true);
-    }//GEN-LAST:event_jMenu3ActionPerformed
+    private void btnTretmaniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTretmaniActionPerformed
+  new ProzorTretman().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTretmaniActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,10 +137,13 @@ public class Izbornik extends javax.swing.JFrame {
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnKlijenti;
+    private javax.swing.JButton btnTermini;
+    private javax.swing.JButton btnTretmani;
     private com.github.lgooddatepicker.components.CalendarPanel cp;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
+    private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel lblOperater;
     // End of variables declaration//GEN-END:variables
 }

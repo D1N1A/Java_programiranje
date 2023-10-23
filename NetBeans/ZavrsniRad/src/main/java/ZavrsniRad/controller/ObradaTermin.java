@@ -5,6 +5,7 @@
 package zavrsnirad.controller;
 
 import java.util.List;
+import zavrsnirad.model.Klijent;
 import zavrsnirad.model.Termin;
 import zavrsnirad.util.KozmetickiSalonException;
 
@@ -42,6 +43,10 @@ public class ObradaTermin extends Obrada<Termin>{
     @Override
     protected void kontrolaBrisanje() throws KozmetickiSalonException {
         
+    }
+
+    public void setEntitet(Klijent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

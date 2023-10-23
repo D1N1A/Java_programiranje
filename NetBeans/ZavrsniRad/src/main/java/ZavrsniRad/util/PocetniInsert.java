@@ -28,11 +28,11 @@ import zavrsnirad.model.Tretman;
  */
 public class PocetniInsert {
     
-    private static final int BROJ_BILJESKI = 502;
-    private static final int BROJ_KLIJENATA = 112;
-    private static final int BROJ_TERMINA = 502;
-    private static final int BROJ_TRETMANA = 502;
-    private static final int BROJ_STANJA= 112;
+    private static final int BROJ_BILJESKI = 52;
+    private static final int BROJ_KLIJENATA = 25;
+    private static final int BROJ_TERMINA = 52;
+    private static final int BROJ_TRETMANA = 52;
+    private static final int BROJ_STANJA= 25;
     
     private Faker faker;
     private Session session;
@@ -77,7 +77,7 @@ public class PocetniInsert {
         ObradaOperater oo = new ObradaOperater();
         Operater o = new Operater();
         o.setUloga("vlasnik");
-        o.setLozinka("Sanja");
+        o.setLozinka(hash);
        
         
         oo.setEntitet(o);
@@ -125,7 +125,7 @@ public class PocetniInsert {
         for (int i = 0; i < BROJ_TRETMANA; i++) {
             t = new Tretman();
             t.setNaziv(faker.superhero().power());
-            t.setCijena(faker.number().numberBetween(50, 250));
+            t.setCijena(new BigDecimal(faker.number().numberBetween(50, 250)));
             session.persist(t);
             tretmani.add(t);
             

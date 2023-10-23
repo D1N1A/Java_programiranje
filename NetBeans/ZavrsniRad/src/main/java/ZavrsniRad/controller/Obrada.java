@@ -57,6 +57,7 @@ public abstract class Obrada<T extends Entitet>{
         sesssion.beginTransaction();
         sesssion.persist(entitet);
         sesssion.getTransaction().commit();
+        
     }
     
     private void kontrolaNull() throws KozmetickiSalonException{
@@ -65,6 +66,7 @@ public abstract class Obrada<T extends Entitet>{
         } 
        
     }
+    
     
 
     public T getEntitet() {
@@ -75,8 +77,13 @@ public abstract class Obrada<T extends Entitet>{
         this.entitet = entitet;
     }
     
-    
-    
+     public void refresh(){
+        if(entitet!=null){
+            sesssion.refresh(entitet);
+        }
+    }
+
+
     
     
     
