@@ -3,6 +3,7 @@ package zavrsnirad.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import java.sql.Time;
+import java.util.Collection;
 import java.util.Date;
 
 
@@ -40,6 +41,16 @@ public class Termin extends Entitet{
         this.klijent = klijent;
     }
 
+    @Override
+    public String toString() {
+        return klijent+ " "+ datum + " " + vrijeme;
+    }
+
+    public Collection<? extends Biljeska> getBiljeske() {
+        return getBiljeske();
+    }
+
+    
          
          
 

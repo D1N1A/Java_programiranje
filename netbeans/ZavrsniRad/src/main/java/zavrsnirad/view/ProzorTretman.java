@@ -67,7 +67,7 @@ public class ProzorTretman extends javax.swing.JFrame implements KozmetickiSalon
 
         jLabel3.setText("Cijena");
 
-        txtCijena.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtCijena.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtCijena.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtCijenaKeyPressed(evt);
@@ -231,6 +231,7 @@ public class ProzorTretman extends javax.swing.JFrame implements KozmetickiSalon
         DefaultListModel<Tretman> m = new DefaultListModel<>();
         m.addAll(obrada.read());
         lstTretmani.setModel(m);
+        lstTretmani.repaint();
        
     }
 

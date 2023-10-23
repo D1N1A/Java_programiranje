@@ -64,6 +64,12 @@ public class Klijent extends Entitet{
 
     public void seteMail(String eMail) {
         this.eMail = eMail;
+        
+        
+    }
+    
+    public String toString () {
+        return ime + " "+ prezime;
     }
         
 }

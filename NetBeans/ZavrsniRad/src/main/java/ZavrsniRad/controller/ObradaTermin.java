@@ -46,7 +46,7 @@ public class ObradaTermin extends Obrada<Termin>{
     }
 
     public void setEntitet(Klijent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
 }

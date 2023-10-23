@@ -6,10 +6,13 @@ package zavrsnirad.view;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.github.lgooddatepicker.components.TimePickerSettings;
+import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -261,7 +264,8 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
             ucitaj();
         } catch (KozmetickiSalonException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
-            // napraviti refresh
+            
+           obrada.refresh();
             
         }
 
@@ -291,7 +295,7 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
 
     private void btnUpravljajBiješkamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpravljajBiješkamaActionPerformed
 
-       new ProzorBiljeska().setVisible(true); 
+       new ProzorBiljeska(this).setVisible(true); 
     }//GEN-LAST:event_btnUpravljajBiješkamaActionPerformed
     
     
@@ -330,12 +334,17 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
     public void popuniModel() {
         var e = obrada.getEntitet();
         
- 
-        
+        e.setKlijent((Klijent)cmbKlijenti.getSelectedItem());
+
         
         
         LocalDate ld = dtpDatumPocetka.datePicker.getDate();
         LocalTime lt = dtpDatumPocetka.timePicker.getTime();
+        
+        LocalDateTime ldt = LocalDateTime.of(ld,lt);
+        
+        e.setDatum(Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant()));
+        e.setVrijeme((Time) Time.from(ldt.atZone(ZoneId.systemDefault()).toInstant()));
         
     }
 
@@ -345,6 +354,7 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
         
    
        cmbKlijenti.setSelectedItem(e.getKlijent());
+       
        
        
        
@@ -373,6 +383,11 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
             dtpDatumPocetka.timePicker.setTime(lt);
         }
    
+        
+        DefaultListModel<Biljeska> m = new DefaultListModel<>();
+        m.addAll(e.getBiljeske());
+        lstBiljeske.setModel(m);
+        lstBiljeske.repaint();
         }
         
 }
