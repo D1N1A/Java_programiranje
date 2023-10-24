@@ -12,7 +12,6 @@ public class Biljeska extends Entitet {
         private Termin termin;
         @ManyToOne
         private Tretman tretman;
-        
 
     public String getOpazanje() {
         return opazanje;
@@ -44,45 +43,6 @@ public class Biljeska extends Entitet {
 
     public void setTretman(Tretman tretman) {
         this.tretman = tretman;
-    }
-
-    @Override
-    public String toString() {
-       StringBuilder sb = new StringBuilder();
-
-            if (getOpazanje() != null) {
-                if (getOpazanje().length() > 20) {
-                    sb.append(getOpazanje().substring(0, 10));
-                    sb.append("...");
-                } else {
-                    sb.append(getOpazanje());
-                }
-            } else {
-                sb.append(""); 
-            }
-
-            sb.append(" [");
-            sb.append(" ]");
-            
-          
-
-            if (getPreporuka() != null) {
-                if (getPreporuka().length() > 20) {
-                    sb.append(getOpazanje().substring(0, 10));
-                    sb.append("...");
-                } else {
-                    sb.append(getOpazanje());
-                }
-            } else {
-                sb.append(""); 
-            }
-
-            sb.append(" [");
-            sb.append(" ]");
-
-           
-
-            return sb.toString(); 
     }
           
          

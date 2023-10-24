@@ -15,17 +15,8 @@ public class Stanje extends Entitet{
         @ManyToMany
         private List<Tretman> tretmani;
 
-    public List<Tretman> getTretmani() {
-        return tretmani;
-    }
-
-    public void setTretmani(List<Tretman> tretmani) {
-        this.tretmani = tretmani;
-    }
-
        
 
-        
     public String getNaziv() {
         return naziv;
     }
@@ -42,21 +33,8 @@ public class Stanje extends Entitet{
         this.opis = opis;
     }
 
-    @Override
-    public String toString() {
-        return naziv + " " + opis;
-    
-            
-    }
-    
-
+        
+        
 }
-    
-
-    
-
-        
-        
-
 
     
