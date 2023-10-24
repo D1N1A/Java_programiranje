@@ -15,8 +15,17 @@ public class Klijent extends Entitet{
 	private String kontaktTel;
 	private String eMail;
         
-        @ManyToMany
+        @OneToMany (mappedBy="klijent")
         private List<Stanje> stanja;
+
+    public List<Stanje> getStanja() {
+        return stanja;
+    }
+
+    public void setStanje(List<Stanje> stanja) {
+        this.stanja = stanja;
+    }
+        
         
       
         

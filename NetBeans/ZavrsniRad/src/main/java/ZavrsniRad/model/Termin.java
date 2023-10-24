@@ -2,9 +2,11 @@ package zavrsnirad.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import java.sql.Time;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -14,6 +16,19 @@ public class Termin extends Entitet{
 
          @ManyToOne
          private Klijent klijent;
+         
+         @OneToMany(mappedBy = "termin")
+         private List<Biljeska> biljeske;
+
+    public List<Biljeska> getBiljeske() {
+        return biljeske;
+    }
+
+    public void setBiljeske(List<Biljeska> biljeske) {
+        this.biljeske = biljeske;
+    }
+         
+         
 
     public Date getDatum() {
         return datum;
@@ -46,9 +61,11 @@ public class Termin extends Entitet{
         return klijent+ " "+ datum + " " + vrijeme;
     }
 
-    public Collection<? extends Biljeska> getBiljeske() {
-        return getBiljeske();
+    public void setKlijent(String odaberite) {
+        
     }
+
+
 
     
          

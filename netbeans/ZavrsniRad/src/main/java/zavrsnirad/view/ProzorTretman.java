@@ -6,6 +6,8 @@ package zavrsnirad.view;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import zavrsnirad.controller.ObradaTretman;
@@ -29,6 +31,12 @@ public class ProzorTretman extends javax.swing.JFrame implements KozmetickiSalon
     public ProzorTretman() {
          initComponents();
          setTitle(Alati.KOZMETICKI_SALON + " | TRETMANI");
+         
+                  obrada = new ObradaTretman();
+                   DecimalFormatSymbols dfs = new DecimalFormatSymbols(Locale.of("hr", "HR"));
+                    df = new DecimalFormat("###,##0.00", dfs);
+                  ucitaj();
+
     }
 
     /**
@@ -251,11 +259,13 @@ public class ProzorTretman extends javax.swing.JFrame implements KozmetickiSalon
     public void popuniView() {
         var e = obrada.getEntitet();
         txtNaziv.setText(e.getNaziv());
-         try {
+          try {
             txtCijena.setText(df.format(e.getCijena()));
         } catch (Exception ex) {
             txtCijena.setText(df.format(0));
         }
+         
+        
     }
     /**
      * @param args the command line arguments

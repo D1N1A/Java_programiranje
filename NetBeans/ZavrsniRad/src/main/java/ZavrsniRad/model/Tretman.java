@@ -40,6 +40,11 @@ public class Tretman extends Entitet {
         
         
     }
+
+    @Override
+    public String toString() {
+        return naziv;
+    }
       
 
     

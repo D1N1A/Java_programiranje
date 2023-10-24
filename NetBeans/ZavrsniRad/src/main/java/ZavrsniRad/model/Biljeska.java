@@ -12,6 +12,7 @@ public class Biljeska extends Entitet {
         private Termin termin;
         @ManyToOne
         private Tretman tretman;
+        
 
     public String getOpazanje() {
         return opazanje;

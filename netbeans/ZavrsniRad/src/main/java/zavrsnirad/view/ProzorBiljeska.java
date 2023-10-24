@@ -9,6 +9,7 @@ import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import zavrsnirad.controller.ObradaBiljeska;
+import zavrsnirad.controller.ObradaTermin;
 import zavrsnirad.model.Biljeska;
 import zavrsnirad.model.Termin;
 import zavrsnirad.util.Alati;
@@ -22,22 +23,46 @@ public class ProzorBiljeska extends javax.swing.JFrame implements KozmetickiSalo
 
     private ObradaBiljeska obrada;
     private ProzorTermin prozorTermin;
+    private ObradaTermin obradaTermin;
     /**
      * Creates new form ProzorBiljeska
      */
     public ProzorBiljeska(ProzorTermin prozorTermin) {
-        initComponents();
+         initComponents();
           setTitle(Alati.KOZMETICKI_SALON + " | BILJEŠKE");
           this.prozorTermin = prozorTermin;
+          obradaTermin = new ObradaTermin();
+          
+          
           obrada = new ObradaBiljeska();
+         // ucitajTermine();
+          
+          //lstTerminiUBazi.setModel(lstTerminiUBazi.getModel());
+          //lstTerminiUBazi.repaint();
           
           ucitaj ();
-        
   
     }
 
    
-
+//private void ucitajTermine () {
+        
+       // private void ucitajKlijente () {
+        //DefaultComboBoxModel<Klijent> m = new DefaultComboBoxModel <> ();
+        //Klijent k = new Klijent ();
+        //k.setSifra(0);
+        //k.setIme("Odaberite");
+        //k.setPrezime("klijenta");
+        //m.addElement(k);
+        
+       // m.addAll(new ObradaKlijent().read());
+        
+        //cmbKlijenti.setModel(m);
+        //cmbKlijenti.repaint();
+        
+        
+        
+    
 
 
     /**
@@ -68,6 +93,11 @@ public class ProzorBiljeska extends javax.swing.JFrame implements KozmetickiSalo
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lstBiljeske.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lstBiljeske.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstBiljeskeValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(lstBiljeske);
 
         jLabel1.setText("Bilješke");
@@ -98,6 +128,11 @@ public class ProzorBiljeska extends javax.swing.JFrame implements KozmetickiSalo
         });
 
         lstTerminiUBazi.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lstTerminiUBazi.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstTerminiUBaziValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(lstTerminiUBazi);
 
         jLabel4.setText("Termini");
@@ -126,18 +161,17 @@ public class ProzorBiljeska extends javax.swing.JFrame implements KozmetickiSalo
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtPreporuka, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtOpazanje)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(btnDodaj)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnObrisi)
-                                .addComponent(btnPromjena)))))
+                    .addComponent(txtOpazanje)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnDodaj)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnObrisi)
+                            .addComponent(btnPromjena))))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnObrisiBiljesku, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -158,32 +192,37 @@ public class ProzorBiljeska extends javax.swing.JFrame implements KozmetickiSalo
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
                                 .addComponent(btnObrisiBiljesku, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(btnDodajBiljesku, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(34, 34, 34)
+                                .addComponent(btnDodajBiljesku, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtOpazanje, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtPreporuka, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnDodaj)
-                            .addComponent(btnPromjena))
+                            .addComponent(btnPromjena)
+                            .addComponent(btnDodaj))
                         .addGap(18, 18, 18)
-                        .addComponent(btnObrisi))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnObrisi)
+                        .addGap(14, 14, 14))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))))
         );
 
         pack();
@@ -308,6 +347,35 @@ public class ProzorBiljeska extends javax.swing.JFrame implements KozmetickiSalo
         
 
     }//GEN-LAST:event_btnDodajBiljeskuActionPerformed
+
+    private void lstBiljeskeValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstBiljeskeValueChanged
+ if (evt.getValueIsAdjusting()) {
+            return;
+        }
+
+        if (lstBiljeske.getSelectedValue() == null) {
+            return;
+        }
+
+        obrada.setEntitet(lstBiljeske.getSelectedValue());
+
+        popuniView();        // TODO add your handling code here:
+    }//GEN-LAST:event_lstBiljeskeValueChanged
+
+    private void lstTerminiUBaziValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstTerminiUBaziValueChanged
+ if (evt.getValueIsAdjusting()) {
+            return;
+        }
+
+        if (lstTerminiUBazi.getSelectedValue() == null) {
+            return;
+        }
+
+        obradaTermin.setEntitet(lstTerminiUBazi.getSelectedValue().getKlijent());
+        
+
+        popuniView();        // TODO add your handling code here:
+    }//GEN-LAST:event_lstTerminiUBaziValueChanged
 
     /**
      * @param args the command line arguments

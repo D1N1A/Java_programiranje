@@ -44,42 +44,12 @@ public class Stanje extends Entitet{
 
     @Override
     public String toString() {
-        
-        StringBuilder sb = new StringBuilder();
-        if (getNaziv() != null) {
-                if (getNaziv().length() > 20) {
-                    sb.append(getNaziv().substring(0, 10));
-                    sb.append("...");
-                } else {
-                    sb.append(getNaziv());
-                }
-            } else {
-                sb.append(""); 
-            }
-
-            sb.append(" [");
+        return naziv + " " + opis;
+    
             
-            
-            if (getOpis() != null) {
-                if (getOpis().length() > 20) {
-                    sb.append(getOpis().substring(0, 10));
-                    sb.append("...");
-                } else {
-                    sb.append(getNaziv());
-                }
-            } else {
-                sb.append(""); 
-            }
-
-            sb.append(" [");
-            
-        
-            
-           //Ovo napravi tako za opis, probaj pa javi ako zapnes;
-          // probaj
-            
-            return sb.toString();
     }
+    
+
 }
     
 

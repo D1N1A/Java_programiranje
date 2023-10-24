@@ -5,10 +5,13 @@
 package zavrsnirad.view;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import zavrsnirad.controller.ObradaKlijent;
+import zavrsnirad.controller.ObradaStanje;
 import zavrsnirad.model.Biljeska;
 import zavrsnirad.model.Klijent;
+import zavrsnirad.model.Stanje;
 import zavrsnirad.util.Alati;
 import zavrsnirad.util.KozmetickiSalonException;
 
@@ -29,11 +32,31 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
          setTitle(Alati.KOZMETICKI_SALON + " | KLIJENTI");
          
          obrada = new ObradaKlijent();
-         
+         ucitajStanja();
          ucitaj();
+         
+        
+        
+       
                
     }
+    
+    
 
+
+        private void ucitajStanja () {
+           DefaultListModel<Stanje> m = new DefaultListModel<>();
+        lstStanja.setModel(m);
+        lstStanja.repaint();
+            
+          
+            
+            
+            
+                                        
+    
+            
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,7 +82,7 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        lstBiljeske = new javax.swing.JList<>();
+        lstStanja = new javax.swing.JList<>();
         btnUpravljajStanjima = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -111,8 +134,13 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
 
         jLabel6.setText("Stanja");
 
-        lstBiljeske.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane2.setViewportView(lstBiljeske);
+        lstStanja.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lstStanja.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstStanjaValueChanged(evt);
+            }
+        });
+        jScrollPane2.setViewportView(lstStanja);
 
         btnUpravljajStanjima.setText("Upravljaj stanjima");
         btnUpravljajStanjima.addActionListener(new java.awt.event.ActionListener() {
@@ -284,6 +312,20 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
         new ProzorStanje(this).setVisible(true);
     }//GEN-LAST:event_btnUpravljajStanjimaActionPerformed
 
+    private void lstStanjaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstStanjaValueChanged
+if (evt.getValueIsAdjusting()) {
+            return;
+        }
+
+        if (lstStanja.getSelectedValue() == null) {
+            return;
+        }
+
+        obrada.setEntitet(lstKlijenti.getSelectedValue());
+
+        popuniView();        // TODO add your handling code here:
+    }//GEN-LAST:event_lstStanjaValueChanged
+
     /**
      * @param args the command line arguments
      */
@@ -302,8 +344,8 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JList<Biljeska> lstBiljeske;
     private javax.swing.JList<Klijent> lstKlijenti;
+    private javax.swing.JList<Stanje> lstStanja;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtITelefon;
     private javax.swing.JTextField txtIme;
@@ -334,6 +376,11 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
         txtPrezime.setText(e.getPrezime());
         txtEmail.setText(e.geteMail());
         txtITelefon.setText(e.getKontaktTel());
+        
+         DefaultListModel<Stanje> m = new DefaultListModel<>();
+        m.addAll(e.getStanja());
+        lstStanja.setModel(m);
+        lstStanja.repaint();
     }
 
 }

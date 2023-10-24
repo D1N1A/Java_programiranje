@@ -31,12 +31,13 @@ public class Start {
     public static void main(String[] args) {
         
       
-     //  HibernateUtil.getSession();
-      //new PocetniInsert();
+      HibernateUtil.getSession();
+      
+     //new PocetniInsert();
      
         
       
-      new SplashScreen().setVisible(true);
+     //new SplashScreen().setVisible(true);
       //  new Start();
       /*
        ObradaOperater oo = new ObradaOperater();
