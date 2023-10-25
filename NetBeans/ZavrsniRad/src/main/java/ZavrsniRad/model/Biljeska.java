@@ -1,7 +1,10 @@
 package zavrsnirad.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Biljeska extends Entitet {
@@ -12,6 +15,10 @@ public class Biljeska extends Entitet {
         private Termin termin;
         @ManyToOne
         private Tretman tretman;
+        
+        
+         @ManyToMany(mappedBy = "biljeske")
+         public List<Tretman> tretmani = new ArrayList<>();
 
     public String getOpazanje() {
         return opazanje;
@@ -46,7 +53,47 @@ public class Biljeska extends Entitet {
     }
           
          
-  
+  public String toString () {
+        StringBuilder sb = new StringBuilder();
+
+            if (getOpazanje() != null) {
+                if (getOpazanje().length() > 20) {
+                    sb.append(getOpazanje().substring(0, 10));
+                    sb.append("...");
+                } else {
+                    sb.append(getOpazanje());
+                }
+            } else {
+                sb.append(""); 
+            }
+
+            sb.append(" [");
+            sb.append(" ]");
+            
+          
+
+            if (getPreporuka() != null) {
+                if (getPreporuka().length() > 20) {
+                    sb.append(getOpazanje().substring(0, 10));
+                    sb.append("...");
+                } else {
+                    sb.append(getOpazanje());
+                }
+            } else {
+                sb.append(""); 
+            }
+
+            sb.append(" [");
+            sb.append(" ]");
+
+           
+
+            return sb.toString(); 
 	
 
+}
+
+    public void setTermini(List<Termin> te) {
+       
+    }
 }

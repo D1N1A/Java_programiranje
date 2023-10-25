@@ -6,6 +6,8 @@ package zavrsnirad.view;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import zavrsnirad.controller.ObradaTretman;
@@ -28,7 +30,12 @@ public class ProzorTretman extends javax.swing.JFrame implements KozmetickiSalon
      */
     public ProzorTretman() {
          initComponents();
+          obrada = new ObradaTretman();
          setTitle(Alati.KOZMETICKI_SALON + " | TRETMANI");
+         DecimalFormatSymbols dfs = new DecimalFormatSymbols(Locale.of("hr", "HR"));
+         df = new DecimalFormat("###,##0.00", dfs);
+         
+         ucitaj();
     }
 
     /**

@@ -46,10 +46,12 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnKlijenti" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnTermini" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnTretmani" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="btnKlijenti" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnTermini" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnTretmani" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnStanja" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnBiljeska" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -68,6 +70,10 @@
               <Component id="btnKlijenti" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnTretmani" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnStanja" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnBiljeska" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jToolBar1" min="-2" pref="25" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -122,6 +128,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTretmaniActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnStanja">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Stanja"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStanjaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnBiljeska">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Bilje&#x161;ke"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBiljeskaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

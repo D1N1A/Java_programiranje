@@ -16,7 +16,17 @@ public class Klijent extends Entitet{
 	private String eMail;
         
         @ManyToMany
-        private List<Stanje> stanja;
+        public List<Stanje> stanja;
+
+    public List<Stanje> getStanja() {
+        return stanja;
+    }
+
+    
+    
+    public void setStanja(List<Stanje> stanja) {
+        this.stanja = stanja;
+    }
         
       
         
@@ -65,5 +75,9 @@ public class Klijent extends Entitet{
     public void seteMail(String eMail) {
         this.eMail = eMail;
     }
-        
+     
+    public String toString () {
+        return ime + " "+ prezime;
+    
+}
 }

@@ -42,6 +42,8 @@ public class Izbornik extends javax.swing.JFrame {
         btnTermini = new javax.swing.JButton();
         btnKlijenti = new javax.swing.JButton();
         btnTretmani = new javax.swing.JButton();
+        btnStanja = new javax.swing.JButton();
+        btnBiljeska = new javax.swing.JButton();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -77,6 +79,20 @@ public class Izbornik extends javax.swing.JFrame {
             }
         });
 
+        btnStanja.setText("Stanja");
+        btnStanja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStanjaActionPerformed(evt);
+            }
+        });
+
+        btnBiljeska.setText("Bilješke");
+        btnBiljeska.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBiljeskaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,10 +105,12 @@ public class Izbornik extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnKlijenti)
-                            .addComponent(btnTermini)
-                            .addComponent(btnTretmani))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnKlijenti, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnTermini, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnTretmani, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnStanja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBiljeska, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(cp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -106,6 +124,10 @@ public class Izbornik extends javax.swing.JFrame {
                 .addComponent(btnKlijenti)
                 .addGap(18, 18, 18)
                 .addComponent(btnTretmani)
+                .addGap(18, 18, 18)
+                .addComponent(btnStanja)
+                .addGap(18, 18, 18)
+                .addComponent(btnBiljeska)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -131,13 +153,23 @@ public class Izbornik extends javax.swing.JFrame {
   new ProzorTretman().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnTretmaniActionPerformed
 
+    private void btnBiljeskaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiljeskaActionPerformed
+  new ProzorBiljeska().setVisible(true);
+    }//GEN-LAST:event_btnBiljeskaActionPerformed
+
+    private void btnStanjaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStanjaActionPerformed
+ new ProzorStanje().setVisible(true);//new ProzorStanje().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnStanjaActionPerformed
+
     /**
      * @param args the command line arguments
      */
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBiljeska;
     private javax.swing.JButton btnKlijenti;
+    private javax.swing.JButton btnStanja;
     private javax.swing.JButton btnTermini;
     private javax.swing.JButton btnTretmani;
     private com.github.lgooddatepicker.components.CalendarPanel cp;

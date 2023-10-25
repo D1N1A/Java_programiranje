@@ -16,8 +16,11 @@ public class ObradaBiljeska extends Obrada<Biljeska>{
     
     @Override
     public List<Biljeska> read () {
-        return sesssion.createQuery("from Biljeska", Biljeska.class).list();
+        return sesssion.createQuery("from Biljeska b order by b.sifra desc",Biljeska.class)
+               .setMaxResults(20)
+               .list();
     }
+    
 
    
 

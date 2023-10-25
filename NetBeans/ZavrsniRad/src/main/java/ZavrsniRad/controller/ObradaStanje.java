@@ -16,7 +16,9 @@ public class ObradaStanje extends Obrada<Stanje>{
 
     @Override
     public List<Stanje> read() {
-       return sesssion.createQuery("from Stanje", Stanje.class).list();
+       return sesssion.createQuery("from Stanje s order by s.sifra desc",Stanje.class)
+               .setMaxResults(20)
+               .list();
     }
 
     @Override

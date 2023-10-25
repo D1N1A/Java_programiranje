@@ -134,14 +134,23 @@ public class PocetniInsert {
     
     private void kreirajBiljeske() {
         Biljeska b;
+        List<Termin> te;
         for (int i = 0; i < BROJ_BILJESKI; i++) {
             b = new Biljeska();
             b.setTermin(termini.get(faker.number().numberBetween(0, BROJ_TERMINA-1)));
             b.setTretman(tretmani.get(faker.number().numberBetween(0, BROJ_TRETMANA-1)));
             b.setOpazanje(faker.book().title());
             b.setPreporuka(faker.food().ingredient());
+            te= new ArrayList<>();
+            for (int j = 0; j < faker.number().numberBetween(0, 5); j++) {
+                te.add(termini.get(faker.number().numberBetween(0, BROJ_TERMINA - 1)));
+            }
+            b.setTermini(te);
+            
+            
+            
             session.persist(b);
-            biljeske.add(b);
+           
          
         }
         
@@ -153,12 +162,22 @@ public class PocetniInsert {
     private void kreirajStanja() {
      
              Stanje s;
+             List <Klijent> k;
+             
         for (int i = 0; i < BROJ_STANJA; i++) {
             s = new Stanje();
             s.setNaziv(faker.medical().diseaseName());
             s.setOpis(faker.medical().medicineName());
+            
+            k = new ArrayList<>();
+            
+             for (int j = 0; j < faker.number().numberBetween(0, 5); j++) {
+                k.add(klijenti.get(faker.number().numberBetween(0, BROJ_KLIJENATA - 1)));
+            }
+            s.setKlijenti(k);
+            
             session.persist(s);
-            stanja.add(s);
+           
         }
     }
 

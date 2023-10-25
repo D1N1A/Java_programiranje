@@ -281,7 +281,7 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
 
     private void btnUpravljajStanjimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpravljajStanjimaActionPerformed
 
-        new ProzorStanje().setVisible(true);
+        new ProzorUpravljajStanjima(this).setVisible(true);
     }//GEN-LAST:event_btnUpravljajStanjimaActionPerformed
 
     /**
@@ -334,6 +334,8 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
         txtPrezime.setText(e.getPrezime());
         txtEmail.setText(e.geteMail());
         txtITelefon.setText(e.getKontaktTel());
+        
+ 
     }
 
 }
