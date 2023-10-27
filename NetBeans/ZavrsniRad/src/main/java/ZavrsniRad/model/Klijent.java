@@ -31,6 +31,7 @@ public class Klijent extends Entitet{
       
         
         public Klijent () {
+            
         
         }
         
@@ -76,6 +77,7 @@ public class Klijent extends Entitet{
         this.eMail = eMail;
     }
      
+        @Override
     public String toString () {
         return ime + " "+ prezime;
     

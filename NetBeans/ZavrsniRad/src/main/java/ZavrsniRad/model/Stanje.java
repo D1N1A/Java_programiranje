@@ -80,6 +80,10 @@ public class Stanje extends Entitet{
             
             return sb.toString();
     }
+
+    public void getSifra(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
         
         
   
