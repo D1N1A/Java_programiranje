@@ -296,20 +296,20 @@ public class ProzorUpravljajStanjima extends javax.swing.JFrame implements Kozme
      * @param args the command line arguments
      */
    
-        @Override
+     @Override
     public void ucitaj() {
         DefaultListModel<Stanje> m = new DefaultListModel<>();
         m.addAll(obrada.read());
         lstStanja.setModel(m);
-        lstStanja.repaint();
+       
     }
 
-   @Override
+    @Override
     public void popuniModel() {
         var e = obrada.getEntitet();
         e.setNaziv(txtNaziv.getText());
         e.setOpis(txtOpis.getText());
- 
+        
     }
 
     @Override
@@ -317,8 +317,8 @@ public class ProzorUpravljajStanjima extends javax.swing.JFrame implements Kozme
         var e = obrada.getEntitet();
         txtNaziv.setText(e.getNaziv());
         txtOpis.setText(e.getOpis());
-        
-        
+        txtNaziv.setText(e.getNaziv());
+     
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDodaj;

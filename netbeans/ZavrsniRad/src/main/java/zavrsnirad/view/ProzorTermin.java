@@ -388,6 +388,8 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
             cmbKlijenti.setSelectedItem(e.getKlijent());
         }
         
+        
+        
       if(e.getDatum()==null){
             dtpDatumPocetka.datePicker.setDate(null);
         }else{
