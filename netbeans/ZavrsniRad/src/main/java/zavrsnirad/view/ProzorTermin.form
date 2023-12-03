@@ -31,23 +31,23 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="dtpDatumPocetka" alignment="0" max="32767" attributes="0"/>
                   <Component id="cmbKlijenti" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="btnObrisi" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" min="-2" pref="72" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
                       <Component id="btnDodaj" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnPromjena" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel2" min="-2" pref="72" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
+                          <Component id="dtpDatumPocetka" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -84,9 +84,9 @@
                               <Component id="cmbKlijenti" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" pref="28" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="dtpDatumPocetka" min="-2" pref="21" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="dtpDatumPocetka" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnDodaj" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnPromjena" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -112,8 +112,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Zakazani termini"/>
       </Properties>
-    </Component>
-    <Component class="com.github.lgooddatepicker.components.DateTimePicker" name="dtpDatumPocetka">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -214,6 +212,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpravljajBije&#x161;kamaActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="com.github.lgooddatepicker.components.DateTimePicker" name="dtpDatumPocetka">
     </Component>
   </SubComponents>
 </Form>

@@ -50,7 +50,6 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
          obradaBiljeska = new ObradaBiljeska();
          ucitajKlijente();
          definirajDatum();
-         definirajVrijeme();
          ucitaj();
          
         
@@ -61,18 +60,13 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
         return obrada;
     }
     
-    private void definirajDatum (){
+    
+    private void definirajDatum(){
          DatePickerSettings dps = new DatePickerSettings(Locale.of("hr","HR"));
          dps.setFormatForDatesCommonEra("dd. MM. YYYY.");
          dps.setTranslationClear("Očisti");
          dps.setTranslationToday("Danas");
          dtpDatumPocetka.datePicker.setSettings(dps);
-         
-        
-    
-    }
-     private void definirajVrijeme() {
-        
          
          TimePickerSettings tps = dtpDatumPocetka.timePicker.getSettings();
     
@@ -85,8 +79,14 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
                  lista.add(LocalTime.of(i,j));
              }
          }
-              tps.generatePotentialMenuTimes(lista);
+         
+         tps.generatePotentialMenuTimes(lista);
+         
+         
+         
      }
+    
+   
     
     private void ucitajKlijente () {
         DefaultComboBoxModel<Klijent> m = new DefaultComboBoxModel <> ();
@@ -118,7 +118,6 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
     private void initComponents() {
 
         lblTermini = new javax.swing.JLabel();
-        dtpDatumPocetka = new com.github.lgooddatepicker.components.DateTimePicker();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cmbKlijenti = new javax.swing.JComboBox<>();
@@ -131,6 +130,7 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
         lstBiljeske = new javax.swing.JList<>();
         lblBiljeska = new javax.swing.JLabel();
         btnUpravljajBiješkama = new javax.swing.JButton();
+        dtpDatumPocetka = new com.github.lgooddatepicker.components.DateTimePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -191,7 +191,6 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
                     .addComponent(lblTermini, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dtpDatumPocetka, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cmbKlijenti, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -204,7 +203,8 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnDodaj)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPromjena)))
+                        .addComponent(btnPromjena))
+                    .addComponent(dtpDatumPocetka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
@@ -232,9 +232,9 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
                                 .addComponent(cmbKlijenti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dtpDatumPocetka, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
+                                .addGap(18, 18, 18)
+                                .addComponent(dtpDatumPocetka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnDodaj)
                                     .addComponent(btnPromjena)))
@@ -314,13 +314,17 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
 
     private void lstTerminiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstTerminiValueChanged
         
-       if(lstTermini.getSelectedValue()==null){
+            if (evt.getValueIsAdjusting()) {
             return;
         }
-       
-       obrada.setEntitet(lstTermini.getSelectedValue());
-       
-       popuniView();
+
+        if (lstTermini.getSelectedValue() == null) {
+            return;
+        }
+
+        obrada.setEntitet(lstTermini.getSelectedValue());
+
+        popuniView();
        
                
     }//GEN-LAST:event_lstTerminiValueChanged
@@ -365,14 +369,14 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
  
   
     
-    LocalDate ld = dtpDatumPocetka.datePicker.getDate();
-    LocalTime lt = dtpDatumPocetka.timePicker.getTime();
-    
-    LocalDateTime ldt = LocalDateTime.of(ld, lt);
-    
-    e.setDatum(Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant()));
-    //e.setVrijeme(Time.valueOf(lt.atDate(LocalDate.now())));
+     LocalDate ld = dtpDatumPocetka.datePicker.getDate();
+        LocalTime lt = dtpDatumPocetka.timePicker.getTime();
+        
+        LocalDateTime ldt = LocalDateTime.of(ld,lt);
+        
+        e.setDatum(java.sql.Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant()));
     }
+    
     @Override
     public void popuniView() {
         var e = obrada.getEntitet();
@@ -390,29 +394,21 @@ public class ProzorTermin extends javax.swing.JFrame implements KozmetickiSalonV
         
         
         
-      if(e.getDatum()==null){
+       if(e.getDatum()==null){
             dtpDatumPocetka.datePicker.setDate(null);
+            dtpDatumPocetka.timePicker.setTime(null);
         }else{
             LocalDate ld = e.getDatum().toInstant()
                     .atZone(ZoneId.systemDefault())
                     .toLocalDate();
             dtpDatumPocetka.datePicker.setDate(ld);
             
-        }
-        if(e.getVrijeme()==null){
-            dtpDatumPocetka.timePicker.setTime(null);
-        }else{
-            
-         
-            try {
-                  LocalTime lt = e.getVrijeme().toInstant()
+            LocalTime lt = e.getDatum().toInstant()
                     .atZone(ZoneId.systemDefault())
                     .toLocalTime();
             dtpDatumPocetka.timePicker.setTime(lt);
-            } catch (Exception ex) {
-            }
-          
         }
+        
    
         
         DefaultListModel<Biljeska> m = new DefaultListModel<>();
