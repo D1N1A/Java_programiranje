@@ -4,6 +4,7 @@
  */
 package zavrsnirad.view;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -36,18 +37,31 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
          obrada = new ObradaKlijent();
          obradaStanje = new ObradaStanje();
          
-     
+         ucitajStanja();
          
          ucitaj();
                
     }
 
-    public ObradaKlijent getObradaKlijent() {
-        return obrada;
+   private void ucitajStanja () {
+       
+       
+        
+        DefaultListModel <Stanje> m = new DefaultListModel ();
+        Stanje s = new Stanje ();
+        s.setSifra(0);
+        s.setNaziv("");
+        s.setOpis("");
+        m.addElement(s);
+        
+        lstStanja.setModel(m);
+        lstStanja.repaint();
+       
+        
+        
     }
-    
- 
-    
+   
+  
     
 
     /**
@@ -351,6 +365,7 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
         m.addAll(obrada.read());
         lstKlijenti.setModel(m);
         lstKlijenti.repaint();
+        
     }
 
     @Override
