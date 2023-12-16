@@ -46,44 +46,10 @@ public class Stanje extends Entitet{
         this.opis = opis;
     }
 
+        @Override
         public String toString () {
-         
-  StringBuilder sb = new StringBuilder();
-
-            if (getNaziv() != null) {
-                if (getNaziv().length() > 20) {
-                    sb.append(getNaziv().substring(0, 10));
-                    sb.append("...");
-                } else {
-                    sb.append(getNaziv());
-                }
-            } else {
-                sb.append(""); 
-            }
-
-            sb.append(" [");
-            sb.append(" ]");
-            
-          
-
-            if (getOpis() != null) {
-                if (getOpis().length() > 20) {
-                    sb.append(getOpis().substring(0, 10));
-                    sb.append("...");
-                } else {
-                    sb.append(getOpis());
-                }
-            } else {
-                sb.append(""); 
-            }
-
-            sb.append(" [");
-            sb.append(" ]");
-
-           
-
-            return sb.toString(); 
-	
+        return naziv  + " " + opis;
+  
 
 }
 }
