@@ -393,6 +393,12 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
         lstStanja.setModel(m);
         lstStanja.repaint();
         }
+    
+        if(e.getStanja()==null){
+            lstStanja.setSelectedIndex(0);
+        }else{
+            lstStanja.setSelectedItem(e.getStanja());
+        }
  
     }
 
