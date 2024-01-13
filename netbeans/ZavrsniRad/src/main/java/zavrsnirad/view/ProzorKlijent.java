@@ -37,29 +37,13 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
          obrada = new ObradaKlijent();
          obradaStanje = new ObradaStanje();
          
-         ucitajStanja();
+
          
          ucitaj();
                
     }
 
-   private void ucitajStanja () {
-       
-       
-        
-        DefaultListModel <Stanje> m = new DefaultListModel ();
-        Stanje s = new Stanje ();
-        s.setSifra(0);
-        s.setNaziv("");
-        s.setOpis("");
-        m.addElement(s);
-        
-        lstStanja.setModel(m);
-        lstStanja.repaint();
-       
-        
-        
-    }
+ 
    
   
     
@@ -320,17 +304,7 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
     }//GEN-LAST:event_btnUpravljajStanjimaActionPerformed
 
     private void lstStanjaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstStanjaValueChanged
- if (evt.getValueIsAdjusting()) {
-            return;
-        }
-
-        if (lstStanja.getSelectedValue() == null) {
-            return;
-        }
-
-        obradaStanje.setEntitet(lstStanja.getSelectedValue());
-
-        popuniView();        // TODO add your handling code here:
+       // TODO add your handling code here:
     }//GEN-LAST:event_lstStanjaValueChanged
 
     /**
@@ -394,11 +368,11 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
         lstStanja.repaint();
         }
     
-        if(e.getStanja()==null){
-            lstStanja.setSelectedIndex(0);
-        }else{
-            lstStanja.setSelectedItem(e.getStanja());
-        }
+       // if(e.getStanja()==null){
+       //    lstStanja.setSelectedIndex(0);
+       // }else{
+       //    lstStanja.setSelectedItem(e.getStanja());
+      //  }
  
     }
 

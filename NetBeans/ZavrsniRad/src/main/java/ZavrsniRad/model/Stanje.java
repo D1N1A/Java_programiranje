@@ -15,9 +15,19 @@ public class Stanje extends Entitet{
 	private String naziv;
 	private String opis;
         
-        
-        @ManyToMany(mappedBy = "stanja")
-    private List<Klijent> klijenti = new ArrayList<>();
+    @ManyToOne
+        private Termin termin;
+
+    @ManyToMany(mappedBy = "stanja")
+         public List<Klijent> klijenti = new ArrayList<>();
+
+    public Termin getTermin() {
+        return termin;
+    }
+
+    public void setTermin(Termin termin) {
+        this.termin = termin;
+    }
 
     public List<Klijent> getKlijenti() {
         return klijenti;
@@ -26,6 +36,7 @@ public class Stanje extends Entitet{
     public void setKlijenti(List<Klijent> klijenti) {
         this.klijenti = klijenti;
     }
+
 
 
        

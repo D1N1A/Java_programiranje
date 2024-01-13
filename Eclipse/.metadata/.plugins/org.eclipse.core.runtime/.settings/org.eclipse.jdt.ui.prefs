@@ -1,5 +1,5 @@
 content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="edunova.Smjer"><rhs name\="edunova.Smjer"/></lhs><lhs name\="edunova.Grupa"><rhs name\="edunova.Grupa"/></lhs><lhs name\="Edunova08.Osoba"><rhs name\="Edunova08.Osoba"/></lhs><lhs name\="edunova.Osoba"><rhs name\="edunova.Osoba"/><rhs name\="edunova.Polaznik"/><rhs name\="edunova.Predavac"/></lhs><lhs name\="edunova.Polaznik"><rhs name\="edunova.Polaznik"/></lhs><lhs name\="edunova.Predavac"><rhs name\="edunova.Predavac"/></lhs><lhs name\="Edunova08.Riba"><rhs name\="Edunova08.Som"/></lhs><lhs name\="Edunova08.Zivotinja"><rhs name\="Edunova08.Som"/></lhs><lhs name\="Edunova08.Som"><rhs name\="Edunova08.Som"/></lhs><lhs name\="java.util.Collection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.List"><rhs name\="java.util.ArrayList"/></lhs></history>
-content_assist_number_of_computers=12
+content_assist_number_of_computers=15
 content_assist_proposals_background=255,255,255
 content_assist_proposals_foreground=0,0,0
 eclipse.preferences.version=1
