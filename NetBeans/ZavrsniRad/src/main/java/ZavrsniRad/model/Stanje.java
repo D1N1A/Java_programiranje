@@ -16,18 +16,12 @@ public class Stanje extends Entitet{
 	private String opis;
         
     @ManyToOne
-        private Termin termin;
+        private Klijent klijent;
 
     @ManyToMany(mappedBy = "stanja")
          public List<Klijent> klijenti = new ArrayList<>();
 
-    public Termin getTermin() {
-        return termin;
-    }
-
-    public void setTermin(Termin termin) {
-        this.termin = termin;
-    }
+    
 
     public List<Klijent> getKlijenti() {
         return klijenti;
@@ -57,10 +51,46 @@ public class Stanje extends Entitet{
         this.opis = opis;
     }
 
-        @Override
-        public String toString () {
-        return naziv  + " " + opis;
+ public String toString () {
+        StringBuilder sb = new StringBuilder();
+
+            if (getNaziv() != null) {
+                if (getNaziv().length() > 20) {
+                    sb.append(getNaziv().substring(0, 10));
+                    sb.append("...");
+                } else {
+                    sb.append(getNaziv());
+                }
+            } else {
+                sb.append(""); 
+            }
+
+            sb.append(" [");
+            sb.append(" ]");
+            
+          
+
+            if (getOpis() != null) {
+                if (getOpis().length() > 20) {
+                    sb.append(getNaziv().substring(0, 10));
+                    sb.append("...");
+                } else {
+                    sb.append(getNaziv());
+                }
+            } else {
+                sb.append(""); 
+            }
+
+            sb.append(" [");
+            sb.append(" ]");
+
+           
+
+            return sb.toString(); 
+	
+
+}
   
 
 }
-}
+    

@@ -126,11 +126,6 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
         jLabel6.setText("Stanja");
 
         lstStanja.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        lstStanja.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                lstStanjaValueChanged(evt);
-            }
-        });
         jScrollPane2.setViewportView(lstStanja);
 
         btnUpravljajStanjima.setText("Upravljaj stanjima");
@@ -302,10 +297,6 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
 
         new ProzorUpravljajStanjima(this).setVisible(true);
     }//GEN-LAST:event_btnUpravljajStanjimaActionPerformed
-
-    private void lstStanjaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstStanjaValueChanged
-       // TODO add your handling code here:
-    }//GEN-LAST:event_lstStanjaValueChanged
 
     /**
      * @param args the command line arguments
