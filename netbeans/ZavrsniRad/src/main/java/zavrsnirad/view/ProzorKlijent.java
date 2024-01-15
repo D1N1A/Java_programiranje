@@ -334,37 +334,35 @@ public class ProzorKlijent extends javax.swing.JFrame implements KozmetickiSalon
     }
 
     @Override
-    public void popuniModel() {
-        var e = obrada.getEntitet();
-        e.setIme(txtIme.getText());
-        e.setPrezime(txtPrezime.getText());
-        e.seteMail(txtEmail.getText());
-        e.setKontaktTel(txtITelefon.getText());
-    }
+
+public void popuniModel() {
+    var e = obrada.getEntitet();
+    e.setIme(txtIme.getText());
+    e.setPrezime(txtPrezime.getText());
+    e.seteMail(txtEmail.getText());
+    e.setKontaktTel(txtITelefon.getText());
+
+
+    e.setStanja(lstStanja.getSelectedValuesList());
+}
+
 
     @Override
     public void popuniView() {
-        var e = obrada.getEntitet();
-        txtIme.setText(e.getIme());
-        txtPrezime.setText(e.getPrezime());
-        txtEmail.setText(e.geteMail());
-        txtITelefon.setText(e.getKontaktTel());
-        
-        lstStanja.setSelectionModel((ListSelectionModel) e.getStanja());
-        
-        
-        DefaultListModel<Stanje> m = new DefaultListModel<>();
-        m.addAll(e.getStanja());
-        lstStanja.setModel(m);
-        lstStanja.repaint();
-        }
+    var e = obrada.getEntitet();
+    txtIme.setText(e.getIme());
+    txtPrezime.setText(e.getPrezime());
+    txtEmail.setText(e.geteMail());
+    txtITelefon.setText(e.getKontaktTel());
+
     
-       // if(e.getStanja()==null){
-       //    lstStanja.setSelectedIndex(0);
-       // }else{
-       //    lstStanja.setSelectedItem(e.getStanja());
-      //  }
- 
+    DefaultListModel<Stanje> m = new DefaultListModel<>();
+    m.addAll(e.getStanja());
+    lstStanja.setModel(m);
+    lstStanja.repaint();
+}
+    
+     
     }
 
  
